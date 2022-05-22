@@ -2,11 +2,12 @@
   "name": "learn-english-game",
   "version": "1.0.0",
   "description": "game created to help learn language playing",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "build": "webpack",
     "dev": "npx webpack serve --open --hot",
-    "tsc": "npx tsc"
+    "tsc": "npx tsc",
+    "style": "sass --watch  src/index.scss dist/compiled-stylesheets/index.css"
   },
   "repository": {
     "type": "git",
@@ -26,10 +27,15 @@
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.17.12",
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "eslint": "^8.16.0",
     "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.6.2",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",

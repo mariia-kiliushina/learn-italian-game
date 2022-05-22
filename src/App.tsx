@@ -1,10 +1,11 @@
-import React, { FC } from "react";
+import { FC } from 'react'
+
 const App: FC = () => {
   return (
     <>
       <div>SASHA PROSTOKVASHA</div>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App
