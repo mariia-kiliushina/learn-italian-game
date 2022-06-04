@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const path = require('path')
 
 let config = {
@@ -24,10 +26,26 @@ let config = {
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.(s(a|c)ss)$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]_[local]_[hash:base64:5]',
+              },
+              localsConvention: 'camelCase',
+            },
+          },
+          'sass-loader',
+        ],
       },
     ],
+  },
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+    minimize: true,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -35,7 +53,10 @@ let config = {
   // devtool: "source-map",
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: './src/index.html',
+    }),
+    new MiniCssExtractPlugin({
+      filename: './bundle.css',
     }),
   ],
   performance: {

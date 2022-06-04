@@ -4,7 +4,7 @@ const Header: FC = () => {
   return (
     <header>
       <nav>Hehehe</nav>
-      <h1>Learn English playing</h1>
+      <h1>Learn Italian playing</h1>
     </header>
   )
 }

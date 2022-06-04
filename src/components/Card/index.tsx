@@ -6,7 +6,7 @@ type Props = {
 
 const Card: FC<Props> = ({ itWord }) => {
   return (
-    <div>
+    <div className="cardItem">
       <p>{itWord}</p>
     </div>
   )
