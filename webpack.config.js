@@ -16,30 +16,30 @@ let config = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/i,
-        use: ['babel-loader'],
+        test: /\.tsx?$/i,
+        use: ['babel-loader', 'ts-loader'],
         exclude: '/node-modules',
       },
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.(s(a|c)ss)$/i,
+        test: /\.module\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: 'style-loader',
+          },
           {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[name]_[local]_[hash:base64:5]',
+                localIdentName: '[local]___[hash:base64:5]',
               },
-              localsConvention: 'camelCase',
             },
           },
           'sass-loader',
         ],
+      },
+      {
+        test: /(?<!module)\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },

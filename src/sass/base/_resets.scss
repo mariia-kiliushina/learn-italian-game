@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  text-indent: 0;
+  list-style-type: none;
+}
