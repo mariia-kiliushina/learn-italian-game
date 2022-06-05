@@ -1,5 +1,17 @@
 @use '../../sass/base/constants';
 
-.navigation_item {
-  display: inline-block;
+header {
+  padding-top: 20px;
+  color: white;
+}
+
+.navigation_bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .navigation_item {
+    display: inline-block;
+    font-size: 26px;
+  }
 }

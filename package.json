@@ -20,7 +20,8 @@
   "homepage": "https://github.com/mariia-kiliushina/learn-english-game#readme",
   "dependencies": {
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "swiper": "^8.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",

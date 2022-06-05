@@ -1,0 +1,21 @@
+@use '../../sass/base/constants';
+
+.mySwiper {
+  height: 400px;
+  .swiper-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .mySwiperSlide {
+    height: 80%;
+    align-self: center;
+  }
+  + .swiper-slide-active {
+    height: 100%;
+  }
+}
+
+.swiper-slide-active .swiper-slide {
+  height: 100%;
+}

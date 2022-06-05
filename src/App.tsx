@@ -8,9 +8,9 @@ const App: FC = () => {
   return (
     <div className="primary-background">
       <Header />
-      <main>
-        <CardsContainer />
-      </main>
+
+      <CardsContainer />
+
       <Footer />
     </div>
   )

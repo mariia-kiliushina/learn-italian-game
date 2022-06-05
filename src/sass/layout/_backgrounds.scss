@@ -1,3 +1,7 @@
 .primary-background {
   background-color: $color-primary;
 }
+
+.swiper-slide-active .swiper-slide {
+  height: 100%;
+}
