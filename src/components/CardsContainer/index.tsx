@@ -15,7 +15,7 @@ import styles from './index.module.scss'
 const CardsContainer: FC = () => {
   return (
     <Swiper
-      slidesPerView={4}
+      slidesPerView={3}
       spaceBetween={30}
       centeredSlides={true}
       loop={true}

@@ -47,6 +47,26 @@ let config = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      // {
+      //   test: /\.svg$/,
+      //   use: [
+      //     {
+      //       loader: '@svgr/webpack',
+      //       options: {},
+      //     },
+      //     'url-loader',
+      //   ],
+      // },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: [{ loader: '@svgr/webpack', options: { icon: true } }],
+      },
+      {
+        test: /\.png$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['file-loader'],
+      },
     ],
   },
   optimization: {
@@ -54,7 +74,10 @@ let config = {
     minimize: true,
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      '#components': path.resolve(process.cwd(), 'src/components'),
+    },
+    extensions: ['.js', '.ts', '.tsx'],
   },
   // devtool: "source-map",
   plugins: [

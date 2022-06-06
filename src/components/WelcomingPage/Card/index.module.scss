@@ -1,0 +1,32 @@
+@use '../../sass/base/constants' as *;
+
+.cardItemWrapper {
+  height: 100%;
+  width: 300px;
+  border: 8px solid $color-primary-light;
+  border-radius: 10px;
+  background-color: $color-primary-light;
+  .cardImageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 70%;
+    width: 100%;
+    background-color: $color-contrastic-1;
+  }
+  .cardTextWrapper {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 30%;
+    width: 100%;
+    background-color: white;
+  }
+  img {
+    border-radius: 10px;
+    display: block;
+    height: 80%;
+    width: 80%;
+  }
+}

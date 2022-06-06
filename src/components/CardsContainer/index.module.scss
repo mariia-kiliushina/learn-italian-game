@@ -1,5 +1,4 @@
-@use '../../sass/base/constants';
-
+@use '../../sass/base/constants' as *;
 .mySwiper {
   height: 400px;
   .swiper-wrapper {

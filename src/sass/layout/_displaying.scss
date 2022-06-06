@@ -4,3 +4,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid_main_layout {
+  display: grid;
+  grid-template-rows: minmax(100px, 10vh) 1fr minmax(80px, 10vh);
+}
