@@ -1,0 +1,8 @@
+diff a/src/sass/global-components/_buttons.scss b/src/sass/global-components/_buttons.scss	(rejected hunks)
+@@ -0,0 +1,6 @@
++.rightAnswer {
++  background-color: $color-contrastic-1;
++}
++.wrongAnswer {
++  background-color: $color-primary-light;
++}

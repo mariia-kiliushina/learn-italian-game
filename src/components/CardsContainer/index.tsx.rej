@@ -1,0 +1,24 @@
+diff a/src/components/CardsContainer/index.tsx b/src/components/CardsContainer/index.tsx	(rejected hunks)
+@@ -1,4 +1,5 @@
+ import { FC, useEffect, useState } from 'react'
++import { useNavigate } from 'react-router-dom'
+ import { Pagination } from 'swiper'
+ import { Navigation } from 'swiper'
+ import 'swiper/css/navigation'
+@@ -21,6 +22,7 @@ type Word = {
+ 
+ const CardsContainer: FC = () => {
+   let [myData, setMyData] = useState<Word[]>([])
++  const navigate = useNavigate()
+ 
+   useEffect(() => {
+     fetch('https://raw.githubusercontent.com/mariia-kiliushina/learn-italian-db/master/data.json')
+@@ -57,7 +59,7 @@ const CardsContainer: FC = () => {
+       </Swiper>
+       <ButtonPrimary
+         onClick={() => {
+-          // modal window here
++          navigate('/train')
+         }}
+       >
+         I learnt all words

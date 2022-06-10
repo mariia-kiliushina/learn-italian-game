@@ -1,3 +1,4 @@
+import mixpanel from 'mixpanel-browser'
 import { FC } from 'react'
 import { Pagination } from 'swiper'
 import { Navigation } from 'swiper'
