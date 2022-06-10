@@ -5,13 +5,23 @@
   color: $color-text-s;
 }
 
+.cardGridWrapper {
+  margin-left: 40px;
+  display: grid;
+  min-height: 700px;
+  min-width: 600px;
+  grid-template-columns: repeat(6, minmax(30px, 1fr));
+  grid-template-rows: repeat(8, minmax(30px, 1fr));
+  column-gap: 16px;
+  row-gap: 16px;
+}
 .appealingText {
   font-size: $extra-large;
   color: $color-text-bright;
 }
 
 .cardGridWrapper {
-  marginleft: 40px;
+  margin-left: 40px;
   display: grid;
   min-height: 700px;
   min-width: 600px;

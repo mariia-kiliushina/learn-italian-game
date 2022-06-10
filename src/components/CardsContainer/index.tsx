@@ -65,7 +65,7 @@ const CardsContainer: FC = () => {
       </Swiper>
       <ButtonPrimary
         onClick={() => {
-          console.log('Clicked')
+          alert('Clicked and tracked by mixpanel')
         }}
       >
         I learnt all words

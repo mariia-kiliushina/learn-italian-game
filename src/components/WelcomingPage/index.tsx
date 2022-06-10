@@ -30,32 +30,30 @@ const WelcomingPage: FC = () => {
               heading={'Ordering your pizza...'}
               description={'using local language'}
               imageSrc={pizza}
-              // className={styles.cardGrid1}
+              className={styles.cardGrid1}
             />
 
             <Card
               heading={'Sipping your coffee...'}
               description={'and having a little chat with a waiter'}
               imageSrc={coffee}
-              // className={styles.cardGrid2}
+              className={styles.cardGrid2}
             />
             <Card
               heading={'Expressing your impressions...'}
               description={'melodically and emotionally'}
               imageSrc={colosseum}
-              // className={styles.cardGrid3}
+              className={styles.cardGrid3}
             />
             <Card
               heading={'Walking around the streets...'}
               description={'and ask locals how to go to Uficci gallery'}
               imageSrc={lasagna}
-              // className={styles.cardGrid4}
+              className={styles.cardGrid4}
             />
           </div>
         </div>
       </div>
-      <div className={styles.noop}></div>
-      <div className={styles.noop}></div>
     </>
   )
 }

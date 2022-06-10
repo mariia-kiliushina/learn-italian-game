@@ -6,17 +6,20 @@ type Props = {
   heading: string
   description: string
   imageSrc: string
+  className: string
 }
 
-const Card: FC<Props> = ({ heading, description, imageSrc }) => {
+const Card: FC<Props> = ({ heading, description, imgSrc, className }) => {
   return (
-    <div className={styles.cardItemWrapper}>
-      <div className={styles.cardImageWrapper}>
-        <img src={imageSrc} />
-      </div>
-      <div className={`flex-column-center ${styles.cardTextWrapper}`}>
-        <div>{heading}</div>
-        <div>{description}</div>
+    <div className={className}>
+      <div className={styles.cardItemWrapper}>
+        <div className={styles.cardImageWrapper}>
+          <img src={imgSrc} />
+        </div>
+        <div className={styles.cardTextWrapper}>
+          <p className={styles.cardHeader}>{heading}</p>
+          <p>{description}</p>
+        </div>
       </div>
     </div>
   )

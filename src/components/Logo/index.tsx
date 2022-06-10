@@ -30,10 +30,10 @@ const LogoMedium: FC = () => {
 const LogoLarge: FC = () => {
   return (
     <div className={`logo ${styles.gridLogoContainer}`}>
-      <h1 className={styles.heading1}>Learn Italian</h1>
-      <h3 className={styles.heading2}>playing</h3>
+      + <h1 className={styles.heading1}>Learn Italian</h1>+{' '}
+      <h3 className={styles.heading2}>playing</h3>+{' '}
       <a href="" className={styles.logoImage}>
-        <img src={flagImg} height="100%" />
+        + <img src={flagImg} height="100%" />+{' '}
       </a>
     </div>
   )
