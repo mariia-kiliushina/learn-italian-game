@@ -9,3 +9,38 @@
   font-size: $extra-large;
   color: $color-text-bright;
 }
+
+.cardGridWrapper {
+  marginleft: 40px;
+  display: grid;
+  min-height: 700px;
+  min-width: 600px;
+  grid-template-columns: repeat(6, minmax(30px, 1fr));
+  grid-template-rows: repeat(8, minmax(30px, 1fr));
+  column-gap: 16px;
+  row-gap: 16px;
+}
+
+.cardGrid1 {
+  grid-column: 1 / 4;
+  grid-row: 1 / 4;
+}
+
+.cardGrid2 {
+  grid-column: 4 / 7;
+  grid-row: 1 / 5;
+}
+
+.cardGrid3 {
+  grid-column: 1 / 4;
+  grid-row: 4 / 9;
+}
+
+.cardGrid4 {
+  grid-column: 4 / 7;
+  grid-row: 5 / 9;
+}
+
+.noop {
+  height: 900px;
+}
