@@ -30,6 +30,7 @@ const wordsList = [
     imageSrc: 'https://www.krugerpark.co.za/images/black-maned-lion-shem-compion-786x500.jpg',
   },
 ]
+
 const CardsContainer: FC = () => {
   return (
     <div>
@@ -62,7 +63,13 @@ const CardsContainer: FC = () => {
           )
         })}
       </Swiper>
-      <ButtonPrimary onClick={() => alert('Clicked')}>I learnt all words</ButtonPrimary>
+      <ButtonPrimary
+        onClick={() => {
+          console.log('Clicked')
+        }}
+      >
+        I learnt all words
+      </ButtonPrimary>
     </div>
   )
 }
