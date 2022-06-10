@@ -16,6 +16,12 @@ body {
   min-height: 100vh;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+  color: unset;
+}
+
 a {
   text-decoration: none;
   display: block;

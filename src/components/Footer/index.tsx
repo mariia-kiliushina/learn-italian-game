@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 // import Icon from '#components/Icon'
-import { LogoMedium } from '#components/Logo'
+import { LogoSmall } from '#components/Logo'
 
 import facebookSvg from '../../../public/images/facebook-256.svg'
 import instagramSvg from '../../../public/images/instagram-250.svg'
@@ -13,8 +13,8 @@ import styles from './index.module.scss'
 const Footer: FC = () => {
   return (
     <footer className="flex-row-center">
-      <div className={`content_wrapper flex-row-center ${styles.footer_content}`}>
-        <LogoMedium />
+      <div className={`content-wrapper flex-row-center ${styles.footer_content}`}>
+        <LogoSmall />
 
         <a href="mailto:mariia.kiliushina@gmail.com">
           Write me if you've noticed some bugs / have a proposal/ want to thanks

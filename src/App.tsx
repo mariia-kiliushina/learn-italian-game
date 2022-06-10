@@ -7,7 +7,6 @@ import Support from '#components/Support'
 import Train from '#components/Train'
 import WelcomingPage from '#components/WelcomingPage'
 
-// import CardsContainer from './components/CardsContainer'
 import Footer from './components/Footer'
 import Header from './components/Header'
 

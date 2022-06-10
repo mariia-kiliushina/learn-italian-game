@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import flagImg from '../../../public/images/italy-96.png'
+import flagImg from '../../../public/images/italy-100.png'
 
 const LogoSmall: FC = () => {
   return (
@@ -8,7 +8,7 @@ const LogoSmall: FC = () => {
       <h3>Learn Italian</h3>
       <p>playing</p>
       <a href="">
-        <img src={flagImg} height="60px" />
+        <img src={flagImg} height="30px" />
       </a>
     </div>
   )
@@ -34,7 +34,7 @@ const LogoLarge: FC = () => {
         <div className="flex-row-center">
           <h3>playing</h3>
           <a href="">
-            <img src={flagImg} height="60px" />
+            <img src={flagImg} height="80px" />
           </a>
         </div>
       </div>

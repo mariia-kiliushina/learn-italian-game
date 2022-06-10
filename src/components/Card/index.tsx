@@ -4,19 +4,19 @@ import styles from './index.module.scss'
 
 type Props = {
   italianWord: string
-  russianWord: string
+  englishWord: string
   imageSrc: string
 }
 
-const Card: FC<Props> = ({ italianWord, russianWord, imageSrc }) => {
+const Card: FC<Props> = ({ italianWord, englishWord, imageSrc }) => {
   return (
     <div className={styles.cardItemWrapper}>
       <div className={styles.cardImageWrapper}>
         <img src={imageSrc} />
       </div>
-      <div className={styles.cardTextWrapper}>
-        <p>{italianWord}</p>
-        <p>{russianWord}</p>
+      <div className={`flex-column-center ${styles.cardTextWrapper}`}>
+        <div className={styles.wordToTranslate}>{italianWord}</div>
+        <div className={styles.translation}>{englishWord}</div>
       </div>
     </div>
   )

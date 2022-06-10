@@ -7,7 +7,7 @@ import styles from './index.module.scss'
 
 const Header: FC = () => {
   return (
-    <header className="content_wrapper flex-column-center">
+    <header className="content-wrapper flex-column-center">
       <nav>
         <ul className={styles.navigation_bar}>
           <li className={styles.navigation_item}>
