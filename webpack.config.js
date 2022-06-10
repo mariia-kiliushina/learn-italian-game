@@ -47,20 +47,15 @@ let config = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-      // {
-      //   test: /\.svg$/,
-      //   use: [
-      //     {
-      //       loader: '@svgr/webpack',
-      //       options: {},
-      //     },
-      //     'url-loader',
-      //   ],
-      // },
       {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        use: [{ loader: '@svgr/webpack', options: { icon: true } }],
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {},
+          },
+          'url-loader',
+        ],
       },
       {
         test: /\.png$/i,

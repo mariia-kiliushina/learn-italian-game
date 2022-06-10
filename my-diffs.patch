@@ -1,0 +1,12 @@
+diff --git a/src/components/WelcomingPage/index.tsx b/src/components/WelcomingPage/index.tsx
+index 3a8d3e4..41fc03d 100644
+--- a/src/components/WelcomingPage/index.tsx
++++ b/src/components/WelcomingPage/index.tsx
+@@ -11,6 +11,7 @@ const WelcomingPage: FC = () => {
+         <p>playing</p>
+         <img src={italianMan} height="280px" />
+       </div>
++      <div>THIS IS FOR PATCH</div>
+     </div>
+   )
+ }

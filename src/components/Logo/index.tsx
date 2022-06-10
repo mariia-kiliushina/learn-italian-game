@@ -38,11 +38,6 @@ const LogoLarge: FC = () => {
           </a>
         </div>
       </div>
-      {/* <div>
-        <a href="">
-          <img src={flagImg} height="60px" />
-        </a>
-      </div> */}
     </div>
   )
 }
