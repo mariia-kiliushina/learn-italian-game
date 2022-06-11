@@ -5,16 +5,16 @@ import styles from './index.module.scss'
 type Props = {
   heading: string
   description: string
-  imageSrc: string
+  imgSrc: string
   className: string
 }
 
-const Card: FC<Props> = ({ heading, description, imageSrc, className }) => {
+const Card: FC<Props> = ({ heading, description, imgSrc, className }) => {
   return (
     <div className={className}>
       <div className={styles.cardItemWrapper}>
         <div className={styles.cardImageWrapper}>
-          <img src={imageSrc} />
+          <img src={imgSrc} />
         </div>
         <div className={styles.cardTextWrapper}>
           <p className={styles.cardHeader}>{heading}</p>

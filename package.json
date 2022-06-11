@@ -20,6 +20,7 @@
   "homepage": "https://github.com/mariia-kiliushina/learn-english-game#readme",
   "dependencies": {
     "mixpanel-browser": "^2.45.0",
+    "random-words": "^1.1.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
@@ -33,6 +34,7 @@
     "@svgr/webpack": "^6.2.1",
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/mixpanel-browser": "^2.38.0",
+    "@types/random-words": "^1.1.2",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.4",
     "babel-loader": "^8.2.5",

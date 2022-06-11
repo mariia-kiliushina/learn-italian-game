@@ -57,6 +57,7 @@ let config = {
           'url-loader',
         ],
       },
+
       {
         test: /\.png$/i,
         issuer: /\.[jt]sx?$/,
@@ -74,7 +75,6 @@ let config = {
     },
     extensions: ['.js', '.ts', '.tsx'],
   },
-  // devtool: "source-map",
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -83,6 +83,9 @@ let config = {
       filename: './bundle.css',
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
   performance: {
     hints: false,
     maxEntrypointSize: 512000,

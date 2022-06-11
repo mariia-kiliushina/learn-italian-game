@@ -4,7 +4,7 @@ import styles from './index.module.scss'
 
 type Props = {
   italianWord: string
-  englishWord: string
+  englishWord?: string
   imageSrc: string
 }
 

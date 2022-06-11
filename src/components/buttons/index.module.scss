@@ -1,0 +1,12 @@
+@use '../../sass/base/constants' as *;
+
+.buttonPrimary {
+  width: 280px;
+  height: 70px;
+  background-color: $color-secondary;
+  color: $color-text-xs;
+  font-size: $medium;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}

@@ -1,17 +1,7 @@
-@use '../../sass/base/constants' as *;
-// Сохранить на будущее для рандомных цветов у карточек
-// $my-colors: ($color-contrastic-1, $color-contrastic-2, $color-contrastic-3, $color-contrastic-4);
-
-// @for $colorIndex from 1 through length($my-colors) {
-//   .cardImageWrapper:nth-child(#{length($my-colors)}n + #{$colorIndex}) {
-//     background-color: nth($my-colors, $colorIndex);
-//   }
-// }
+@use '../../../sass/base/constants' as *;
 
 .cardItemWrapper {
-  height: 600px;
-  width: 500px;
-  border: 10px solid $color-primary-light;
+  border: 8px solid $color-primary-light;
   border-radius: 10px;
   background-color: $color-primary-light;
   color: $color-text-s;
@@ -25,6 +15,7 @@
     border-top-left-radius: 10px;
     height: 50%;
     width: 100%;
+    background-color: $color-contrastic-1;
   }
   .cardTextWrapper {
     padding: 20px;
@@ -49,14 +40,4 @@
 
 .cardHeader {
   font-size: 22px;
-}
-
-.wordToTranslate {
-  font-size: 40px;
-  color: $color-text-s;
-}
-
-.translation {
-  font-size: 28px;
-  color: $color-text-s;
 }

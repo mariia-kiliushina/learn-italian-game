@@ -3,13 +3,14 @@ import { FC, ReactNode } from 'react'
 import styles from './index.module.scss'
 
 type Props = {
-  onClick: () => void
   children: ReactNode
+  onClick: (event: any) => void
+  className?: string
 }
 
-const ButtonPrimary: FC<Props> = ({ onClick, children }) => {
+const ButtonPrimary: FC<Props> = ({ children, onClick, className }) => {
   return (
-    <button onClick={onClick} className={styles.cardItemWrapper}>
+    <button onClick={onClick} className={`${className} ${styles.buttonPrimary}`}>
       {children}
     </button>
   )

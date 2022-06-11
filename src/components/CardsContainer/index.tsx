@@ -1,5 +1,5 @@
-import mixpanel from 'mixpanel-browser'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Pagination } from 'swiper'
 import { Navigation } from 'swiper'
 import 'swiper/css/navigation'
@@ -13,26 +13,24 @@ import ButtonPrimary from '#components/buttons'
 import Card from '../../components/Card'
 import styles from './index.module.scss'
 
-const wordsList = [
-  {
-    italianWord: 'uovo',
-    englishWord: 'man',
-    imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Eggs-5486.JPG',
-  },
-  {
-    italianWord: 'pasticceria',
-    englishWord: 'bakery',
-    imageSrc:
-      'https://www.finedininglovers.it/sites/g/files/xknfdk1106/files/styles/article_1200_800_fallback/public/2022-02/Pasticceria-Cavour-DaV-Lab_0.jpg?itok=iE-Tmx0q',
-  },
-  {
-    italianWord: 'lione',
-    englishWord: 'lion',
-    imageSrc: 'https://www.krugerpark.co.za/images/black-maned-lion-shem-compion-786x500.jpg',
-  },
-]
+type Word = {
+  id: number
+  italianWord: string
+  englishWord: string
+  imageSrc: string
+}
 
 const CardsContainer: FC = () => {
+  let [myData, setMyData] = useState<Word[]>([])
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/mariia-kiliushina/learn-italian-db/master/data.json')
+      .then((response) => response.json())
+      .then((data) => Object.values(data) as Word[])
+      .then(setMyData)
+  }, [])
+
   return (
     <div>
       <Swiper
@@ -44,18 +42,13 @@ const CardsContainer: FC = () => {
         pagination={{
           clickable: true,
         }}
-        // breakpoints={{
-        //   768: {
-        //     slidesPerView: 3,
-        //   },
-        // }}
         className={styles.mySwiper}
       >
-        {wordsList.map((word, key) => {
+        {myData.map((word) => {
           return (
             <SwiperSlide className={styles.mySwiperSlide}>
               <Card
-                key={key}
+                key={word.id}
                 italianWord={word.italianWord}
                 englishWord={word.englishWord}
                 imageSrc={word.imageSrc}
@@ -66,7 +59,7 @@ const CardsContainer: FC = () => {
       </Swiper>
       <ButtonPrimary
         onClick={() => {
-          alert('Clicked and tracked by mixpanel')
+          navigate('/train')
         }}
       >
         I learnt all words

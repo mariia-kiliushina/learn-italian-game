@@ -24,7 +24,7 @@ const Header: FC = () => {
             <Link to="/about">About</Link>
           </li>
           <li className={styles.navigation_item}>
-            <Link to="/support">Support</Link>
+            <Link to="/profile">Profile</Link>
           </li>
         </ul>
       </nav>

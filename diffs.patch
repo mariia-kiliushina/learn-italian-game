@@ -1,0 +1,1148 @@
+diff --git a/declarations.d.ts b/declarations.d.ts
+index ea52985..a49b642 100644
+--- a/declarations.d.ts
++++ b/declarations.d.ts
+@@ -1,8 +1,4 @@
+ declare module '*.module.scss'
+-// declare module '*.svg' {
+-//   const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>
+-//   export default content
+-// }
+ 
+ declare module '*.svg' {
+   const content: any
+diff --git a/package-lock.json b/package-lock.json
+index 52b93d6..1b6bc9c 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -9,6 +9,8 @@
+       "version": "1.0.0",
+       "license": "UNLICENSED",
+       "dependencies": {
++        "mixpanel-browser": "^2.45.0",
++        "random-words": "^1.1.2",
+         "react": "^18.1.0",
+         "react-dom": "^18.1.0",
+         "react-router-dom": "^6.3.0",
+@@ -21,6 +23,8 @@
+         "@babel/preset-typescript": "^7.17.12",
+         "@svgr/webpack": "^6.2.1",
+         "@trivago/prettier-plugin-sort-imports": "^3.2.0",
++        "@types/mixpanel-browser": "^2.38.0",
++        "@types/random-words": "^1.1.2",
+         "@types/react": "^18.0.9",
+         "@types/react-dom": "^18.0.4",
+         "babel-loader": "^8.2.5",
+@@ -2411,6 +2415,12 @@
+       "integrity": "sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==",
+       "dev": true
+     },
++    "node_modules/@types/mixpanel-browser": {
++      "version": "2.38.0",
++      "resolved": "https://registry.npmjs.org/@types/mixpanel-browser/-/mixpanel-browser-2.38.0.tgz",
++      "integrity": "sha512-TR8rvsILnqXA7oiiGOxuMGXwvDeCoQDonXJB5UR+TYvEAFpiK8ReFj5LhZT+Xhm3NpI9aPoju30jB2ssorSUww==",
++      "dev": true
++    },
+     "node_modules/@types/node": {
+       "version": "17.0.35",
+       "resolved": "https://registry.npmjs.org/@types/node/-/node-17.0.35.tgz",
+@@ -2435,6 +2445,12 @@
+       "integrity": "sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==",
+       "dev": true
+     },
++    "node_modules/@types/random-words": {
++      "version": "1.1.2",
++      "resolved": "https://registry.npmjs.org/@types/random-words/-/random-words-1.1.2.tgz",
++      "integrity": "sha512-gULpJ68bNovfBWPWNNhwJgd/GcKdfkPpXXQGgACQWffgy6LRiJB4+4s/IslhFJKQvb5wBlnlOwFJ6RawHU5z3A==",
++      "dev": true
++    },
+     "node_modules/@types/range-parser": {
+       "version": "1.2.4",
+       "resolved": "https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.4.tgz",
+@@ -5781,6 +5797,11 @@
+         "node": "*"
+       }
+     },
++    "node_modules/mixpanel-browser": {
++      "version": "2.45.0",
++      "resolved": "https://registry.npmjs.org/mixpanel-browser/-/mixpanel-browser-2.45.0.tgz",
++      "integrity": "sha512-PQ1DaTk68yyYtLA0iejmzPA9iNDhT4uIZpqZjRTw7HWpYfl123fydHb2laKanaKjm8YDmrGGz3+xZ4Q6joogyg=="
++    },
+     "node_modules/ms": {
+       "version": "2.1.2",
+       "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz",
+@@ -6840,6 +6861,11 @@
+         "url": "https://github.com/sponsors/ljharb"
+       }
+     },
++    "node_modules/random-words": {
++      "version": "1.1.2",
++      "resolved": "https://registry.npmjs.org/random-words/-/random-words-1.1.2.tgz",
++      "integrity": "sha512-GwgC+Yu+D5/044grf2QqaYk3ZrQip7yfgvkj/6bJ3H3B3KrE7qoNPbWaYd06hrigqAkrPzNVEpRlnBaNx4bDuA=="
++    },
+     "node_modules/randombytes": {
+       "version": "2.1.0",
+       "resolved": "https://registry.npmjs.org/randombytes/-/randombytes-2.1.0.tgz",
+@@ -10359,6 +10385,12 @@
+       "integrity": "sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==",
+       "dev": true
+     },
++    "@types/mixpanel-browser": {
++      "version": "2.38.0",
++      "resolved": "https://registry.npmjs.org/@types/mixpanel-browser/-/mixpanel-browser-2.38.0.tgz",
++      "integrity": "sha512-TR8rvsILnqXA7oiiGOxuMGXwvDeCoQDonXJB5UR+TYvEAFpiK8ReFj5LhZT+Xhm3NpI9aPoju30jB2ssorSUww==",
++      "dev": true
++    },
+     "@types/node": {
+       "version": "17.0.35",
+       "resolved": "https://registry.npmjs.org/@types/node/-/node-17.0.35.tgz",
+@@ -10383,6 +10415,12 @@
+       "integrity": "sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==",
+       "dev": true
+     },
++    "@types/random-words": {
++      "version": "1.1.2",
++      "resolved": "https://registry.npmjs.org/@types/random-words/-/random-words-1.1.2.tgz",
++      "integrity": "sha512-gULpJ68bNovfBWPWNNhwJgd/GcKdfkPpXXQGgACQWffgy6LRiJB4+4s/IslhFJKQvb5wBlnlOwFJ6RawHU5z3A==",
++      "dev": true
++    },
+     "@types/range-parser": {
+       "version": "1.2.4",
+       "resolved": "https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.4.tgz",
+@@ -12925,6 +12963,11 @@
+         "brace-expansion": "^1.1.7"
+       }
+     },
++    "mixpanel-browser": {
++      "version": "2.45.0",
++      "resolved": "https://registry.npmjs.org/mixpanel-browser/-/mixpanel-browser-2.45.0.tgz",
++      "integrity": "sha512-PQ1DaTk68yyYtLA0iejmzPA9iNDhT4uIZpqZjRTw7HWpYfl123fydHb2laKanaKjm8YDmrGGz3+xZ4Q6joogyg=="
++    },
+     "ms": {
+       "version": "2.1.2",
+       "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz",
+@@ -13640,6 +13683,11 @@
+         "side-channel": "^1.0.4"
+       }
+     },
++    "random-words": {
++      "version": "1.1.2",
++      "resolved": "https://registry.npmjs.org/random-words/-/random-words-1.1.2.tgz",
++      "integrity": "sha512-GwgC+Yu+D5/044grf2QqaYk3ZrQip7yfgvkj/6bJ3H3B3KrE7qoNPbWaYd06hrigqAkrPzNVEpRlnBaNx4bDuA=="
++    },
+     "randombytes": {
+       "version": "2.1.0",
+       "resolved": "https://registry.npmjs.org/randombytes/-/randombytes-2.1.0.tgz",
+diff --git a/package.json b/package.json
+index 5fc1158..31b4424 100644
+--- a/package.json
++++ b/package.json
+@@ -19,6 +19,8 @@
+   },
+   "homepage": "https://github.com/mariia-kiliushina/learn-english-game#readme",
+   "dependencies": {
++    "mixpanel-browser": "^2.45.0",
++    "random-words": "^1.1.2",
+     "react": "^18.1.0",
+     "react-dom": "^18.1.0",
+     "react-router-dom": "^6.3.0",
+@@ -31,6 +33,8 @@
+     "@babel/preset-typescript": "^7.17.12",
+     "@svgr/webpack": "^6.2.1",
+     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
++    "@types/mixpanel-browser": "^2.38.0",
++    "@types/random-words": "^1.1.2",
+     "@types/react": "^18.0.9",
+     "@types/react-dom": "^18.0.4",
+     "babel-loader": "^8.2.5",
+diff --git a/public/images/instagram-250.svg b/public/images/instagram-250.svg
+deleted file mode 100644
+index 784c37c..0000000
+--- a/public/images/instagram-250.svg
++++ /dev/null
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 250 250" width="250px" height="250px">
+-<g id="surface359882">
+-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 80 15 C 44.148438 15 15 44.148438 15 80 L 15 170 C 15 205.851562 44.148438 235 80 235 L 170 235 C 205.851562 235 235 205.851562 235 170 L 235 80 C 235 44.148438 205.851562 15 170 15 Z M 185 55 C 190.5 55 195 59.5 195 65 C 195 70.5 190.5 75 185 75 C 179.5 75 175 70.5 175 65 C 175 59.5 179.5 55 185 55 Z M 125 70 C 155.351562 70 180 94.648438 180 125 C 180 155.351562 155.351562 180 125 180 C 94.648438 180 70 155.351562 70 125 C 70 94.648438 94.648438 70 125 70 Z M 125 80 C 100.199219 80 80 100.199219 80 125 C 80 149.800781 100.199219 170 125 170 C 149.800781 170 170 149.800781 170 125 C 170 100.199219 149.800781 80 125 80 Z M 125 80 "/>
+-</g>
+-</svg>
+diff --git a/public/images/instagram-50.svg b/public/images/instagram-50.svg
+deleted file mode 100644
+index 841d432..0000000
+--- a/public/images/instagram-50.svg
++++ /dev/null
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" width="50px" height="50px">
+-<g id="surface360642">
+-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 16 3 C 8.828125 3 3 8.828125 3 16 L 3 34 C 3 41.171875 8.828125 47 16 47 L 34 47 C 41.171875 47 47 41.171875 47 34 L 47 16 C 47 8.828125 41.171875 3 34 3 Z M 37 11 C 38.101562 11 39 11.898438 39 13 C 39 14.101562 38.101562 15 37 15 C 35.898438 15 35 14.101562 35 13 C 35 11.898438 35.898438 11 37 11 Z M 25 14 C 31.070312 14 36 18.929688 36 25 C 36 31.070312 31.070312 36 25 36 C 18.929688 36 14 31.070312 14 25 C 14 18.929688 18.929688 14 25 14 Z M 25 16 C 20.039062 16 16 20.039062 16 25 C 16 29.960938 20.039062 34 25 34 C 29.960938 34 34 29.960938 34 25 C 34 20.039062 29.960938 16 25 16 Z M 25 16 "/>
+-</g>
+-</svg>
+diff --git a/src/App.tsx b/src/App.tsx
+index 5d3a711..28dbc96 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -3,25 +3,36 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+ 
+ import About from '#components/About'
+ import Learn from '#components/Learn'
+-import Support from '#components/Support'
++import Profile from '#components/Profile'
+ import Train from '#components/Train'
+ import WelcomingPage from '#components/WelcomingPage'
+ 
+-// import CardsContainer from './components/CardsContainer'
++// import book from '../public/images/book.png'
++// import brain from '../public/images/brain.png'
++// import glasses from '../public/images/glasses.png'
++// import handWithPen from '../public/images/hand-with-pen.png'
++// import hands from '../public/images/hands.png'
++// import study from '../public/images/study.png'
+ import Footer from './components/Footer'
+ import Header from './components/Header'
+ 
+ const App: FC = () => {
+   return (
+-    <div className="primary-background full-height grid_main_layout">
++    <div className="primary-background full-height grid_main_layout pictures">
+       <Router>
++        {/* <img className="backImage1" src={book} alt="" height="64px" />
++        <img className="backImage2" src={brain} alt="" height="64px" />
++        <img className="backImage3" src={hands} alt="" height="64px" />
++        <img className="backImage4" src={glasses} alt="" height="64px" />
++        <img className="backImage5" src={handWithPen} alt="" height="64px" />
++        <img className="backImage6" src={study} alt="" height="64px" /> */}
+         <Header />
+         <Routes>
+           <Route path="/" element={<WelcomingPage />} />
+           <Route path="learn" element={<Learn />} />
+           <Route path="train" element={<Train />} />
+           <Route path="about" element={<About />} />
+-          <Route path="support" element={<Support />} />
++          <Route path="profile" element={<Profile />} />
+         </Routes>
+         <Footer />
+       </Router>
+diff --git a/src/components/Card/index.module.scss b/src/components/Card/index.module.scss
+index 9b9a83f..072411d 100644
+--- a/src/components/Card/index.module.scss
++++ b/src/components/Card/index.module.scss
+@@ -1,9 +1,17 @@
+ @use '../../sass/base/constants' as *;
++// Сохранить на будущее для рандомных цветов у карточек
++// $my-colors: ($color-contrastic-1, $color-contrastic-2, $color-contrastic-3, $color-contrastic-4);
++
++// @for $colorIndex from 1 through length($my-colors) {
++//   .cardImageWrapper:nth-child(#{length($my-colors)}n + #{$colorIndex}) {
++//     background-color: nth($my-colors, $colorIndex);
++//   }
++// }
+ 
+ .cardItemWrapper {
+-  height: 100%;
+-  width: 300px;
+-  border: 8px solid $color-primary-light;
++  height: 500px;
++  width: 400px;
++  border: 10px solid $color-primary-light;
+   border-radius: 10px;
+   background-color: $color-primary-light;
+   .cardImageWrapper {
+@@ -14,7 +22,6 @@
+     border-top-left-radius: 10px;
+     height: 70%;
+     width: 100%;
+-    background-color: $color-contrastic-1;
+   }
+   .cardTextWrapper {
+     border-bottom-right-radius: 10px;
+@@ -30,3 +37,13 @@
+     width: 80%;
+   }
+ }
++
++.wordToTranslate {
++  font-size: 40px;
++  color: $color-text-s;
++}
++
++.translation {
++  font-size: 28px;
++  color: $color-text-s;
++}
+diff --git a/src/components/Card/index.tsx b/src/components/Card/index.tsx
+index c7ad511..ed2ac5d 100644
+--- a/src/components/Card/index.tsx
++++ b/src/components/Card/index.tsx
+@@ -4,19 +4,19 @@ import styles from './index.module.scss'
+ 
+ type Props = {
+   italianWord: string
+-  russianWord: string
++  englishWord?: string
+   imageSrc: string
+ }
+ 
+-const Card: FC<Props> = ({ italianWord, russianWord, imageSrc }) => {
++const Card: FC<Props> = ({ italianWord, englishWord, imageSrc }) => {
+   return (
+     <div className={styles.cardItemWrapper}>
+       <div className={styles.cardImageWrapper}>
+         <img src={imageSrc} />
+       </div>
+-      <div className={styles.cardTextWrapper}>
+-        <p>{italianWord}</p>
+-        <p>{russianWord}</p>
++      <div className={`flex-column-center ${styles.cardTextWrapper}`}>
++        <div className={styles.wordToTranslate}>{italianWord}</div>
++        <div className={styles.translation}>{englishWord}</div>
+       </div>
+     </div>
+   )
+diff --git a/src/components/CardsContainer/index.module.scss b/src/components/CardsContainer/index.module.scss
+index 0001a37..bca3db5 100644
+--- a/src/components/CardsContainer/index.module.scss
++++ b/src/components/CardsContainer/index.module.scss
+@@ -1,20 +1,12 @@
+ @use '../../sass/base/constants' as *;
+ .mySwiper {
+-  height: 400px;
+-  .swiper-wrapper {
++  height: 600px;
++  width: 700px;
++  padding-top: 30px;
++  .mySwiperSlide {
++    align-self: center;
+     display: flex !important;
+     justify-content: center !important;
+     align-items: center !important;
+   }
+-  .mySwiperSlide {
+-    height: 80%;
+-    align-self: center;
+-  }
+-  + .swiper-slide-active {
+-    height: 100%;
+-  }
+-}
+-
+-.swiper-slide-active .swiper-slide {
+-  height: 100%;
+ }
+diff --git a/src/components/CardsContainer/index.tsx b/src/components/CardsContainer/index.tsx
+index da640bb..d01aa46 100644
+--- a/src/components/CardsContainer/index.tsx
++++ b/src/components/CardsContainer/index.tsx
+@@ -1,4 +1,5 @@
+-import { FC } from 'react'
++import { FC, useEffect, useState } from 'react'
++import { useNavigate } from 'react-router-dom'
+ import { Pagination } from 'swiper'
+ import { Navigation } from 'swiper'
+ import 'swiper/css/navigation'
+@@ -7,66 +8,63 @@ import 'swiper/scss'
+ import 'swiper/scss/pagination'
+ import 'swiper/scss/zoom'
+ 
++import ButtonPrimary from '#components/buttons'
++
+ import Card from '../../components/Card'
+ import styles from './index.module.scss'
+ 
+-// const wordsList = ['uovo', 'pasticceria', 'lione']
++type Word = {
++  id: number
++  italianWord: string
++  englishWord: string
++  imageSrc: string
++}
+ 
+ const CardsContainer: FC = () => {
++  let [myData, setMyData] = useState<Word[]>([])
++  const navigate = useNavigate()
++
++  useEffect(() => {
++    fetch('https://raw.githubusercontent.com/mariia-kiliushina/learn-italian-db/master/data.json')
++      .then((response) => response.json())
++      .then((data) => Object.values(data) as Word[])
++      .then(setMyData)
++  }, [])
++
+   return (
+-    <Swiper
+-      slidesPerView={3}
+-      spaceBetween={30}
+-      centeredSlides={true}
+-      loop={true}
+-      navigation={true}
+-      modules={[Navigation, Pagination]}
+-      pagination={{
+-        clickable: true,
+-      }}
+-      className={styles.mySwiper}
+-    >
+-      <SwiperSlide className={styles.mySwiperSlide}>
+-        <Card
+-          italianWord="asd"
+-          russianWord="sad"
+-          imageSrc="https://img.restaurantguru.com/r7ff-Pasticceria-Pina-cake.jpg"
+-        />
+-      </SwiperSlide>
+-      <SwiperSlide className={styles.mySwiperSlide}>
+-        <Card
+-          italianWord="dsf"
+-          russianWord="adsf"
+-          imageSrc="https://img.restaurantguru.com/r7ff-Pasticceria-Pina-cake.jpg"
+-        />
+-      </SwiperSlide>
+-      <SwiperSlide className={styles.mySwiperSlide}>
+-        <Card
+-          italianWord="asd"
+-          russianWord="sad"
+-          imageSrc="https://img.restaurantguru.com/r7ff-Pasticceria-Pina-cake.jpg"
+-        />
+-      </SwiperSlide>
+-      <SwiperSlide className={styles.mySwiperSlide}>
+-        <Card
+-          italianWord="dsf"
+-          russianWord="adsf"
+-          imageSrc="https://img.restaurantguru.com/r7ff-Pasticceria-Pina-cake.jpg"
+-        />
+-      </SwiperSlide>
+-      <SwiperSlide className={styles.mySwiperSlide}>
+-        <Card
+-          italianWord="dsf"
+-          russianWord="adsf"
+-          imageSrc="https://img.restaurantguru.com/r7ff-Pasticceria-Pina-cake.jpg"
+-        />
+-      </SwiperSlide>
+-      {/* {wordsList.map((word, key) => (
+-        <SwiperSlide>
+-          <Card key={key} italianWord={word} />
+-        </SwiperSlide>
+-      ))} */}
+-    </Swiper>
++    <div>
++      <Swiper
++        slidesPerView={1}
++        centeredSlides={true}
++        loop={true}
++        navigation={true}
++        modules={[Navigation, Pagination]}
++        pagination={{
++          clickable: true,
++        }}
++        className={styles.mySwiper}
++      >
++        {myData.map((word) => {
++          return (
++            <SwiperSlide className={styles.mySwiperSlide}>
++              <Card
++                key={word.id}
++                italianWord={word.italianWord}
++                englishWord={word.englishWord}
++                imageSrc={word.imageSrc}
++              />
++            </SwiperSlide>
++          )
++        })}
++      </Swiper>
++      <ButtonPrimary
++        onClick={() => {
++          navigate('/train')
++        }}
++      >
++        I learnt all words
++      </ButtonPrimary>
++    </div>
+   )
+ }
+ 
+diff --git a/src/components/Footer/index.module.scss b/src/components/Footer/index.module.scss
+index c2af808..f8de2f5 100644
+--- a/src/components/Footer/index.module.scss
++++ b/src/components/Footer/index.module.scss
+@@ -1,17 +1,16 @@
+ @use '../../sass/base/constants' as *;
++
+ footer {
+-  // position:
+   color: white;
++  background-color: $color-primary-light;
++  color: white;
++  height: 10vh;
++  min-height: 80px;
+   .footer_content {
+     column-gap: 20px;
+-    background-color: $color-primary-light;
+-    color: white;
+-    height: 10vh;
+-    min-height: 80px;
+   }
+-
+   a {
+-    font-size: $medium;
++    font-size: $small;
+     color: currentColor;
+   }
+ }
+diff --git a/src/components/Footer/index.tsx b/src/components/Footer/index.tsx
+index d340323..57401e5 100644
+--- a/src/components/Footer/index.tsx
++++ b/src/components/Footer/index.tsx
+@@ -1,10 +1,10 @@
+ import { FC } from 'react'
+ 
+ // import Icon from '#components/Icon'
+-import { LogoMedium } from '#components/Logo'
++import { LogoSmall } from '#components/Logo'
+ 
+ import facebookSvg from '../../../public/images/facebook-256.svg'
+-import instagramSvg from '../../../public/images/instagram-250.svg'
++import githubSvg from '../../../public/images/github.svg'
+ import telegramSvg from '../../../public/images/telegram-250.svg'
+ import styles from './index.module.scss'
+ 
+@@ -13,21 +13,22 @@ import styles from './index.module.scss'
+ const Footer: FC = () => {
+   return (
+     <footer className="flex-row-center">
+-      <div className={`content_wrapper flex-row-center ${styles.footer_content}`}>
+-        <LogoMedium />
++      <div className={`content-wrapper flex-row-center ${styles.footer_content}`}>
++        <LogoSmall />
+ 
+         <a href="mailto:mariia.kiliushina@gmail.com">
+           Write me if you've noticed some bugs / have a proposal/ want to thanks
+         </a>
+-        <a href="https://www.instagram.com/" target="blank">
+-          <img src={instagramSvg} height="50px" />
+-        </a>
++
+         <a href="https://web.telegram.org/z/" target="blank">
+           <img src={telegramSvg} height="50px" />
+         </a>
+         <a href="https://www.facebook.com/" target="blank">
+           <img src={facebookSvg} height="50px" />
+         </a>
++        <a href="https://www.github.com/" target="blank">
++          <img src={githubSvg} height="50px" />
++        </a>
+       </div>
+     </footer>
+   )
+diff --git a/src/components/Header/index.module.scss b/src/components/Header/index.module.scss
+index 88f00c1..30da55b 100644
+--- a/src/components/Header/index.module.scss
++++ b/src/components/Header/index.module.scss
+@@ -1,10 +1,9 @@
+ @use '../../sass/base/constants' as *;
+ 
+ header {
+-  padding-top: 20px;
++  margin: 50px;
+   color: white;
+-  height: 10vh;
+-  min-height: 100px;
++  height: 150px;
+ }
+ 
+ .navigation_bar {
+diff --git a/src/components/Header/index.tsx b/src/components/Header/index.tsx
+index db256e0..30384f4 100644
+--- a/src/components/Header/index.tsx
++++ b/src/components/Header/index.tsx
+@@ -7,7 +7,7 @@ import styles from './index.module.scss'
+ 
+ const Header: FC = () => {
+   return (
+-    <header className="content_wrapper flex-column-center">
++    <header className="content-wrapper flex-column-center">
+       <nav>
+         <ul className={styles.navigation_bar}>
+           <li className={styles.navigation_item}>
+@@ -24,7 +24,7 @@ const Header: FC = () => {
+             <Link to="/about">About</Link>
+           </li>
+           <li className={styles.navigation_item}>
+-            <Link to="/support">Support</Link>
++            <Link to="/profile">Profile</Link>
+           </li>
+         </ul>
+       </nav>
+diff --git a/src/components/Learn/index.tsx b/src/components/Learn/index.tsx
+index c78ac22..c2b5e92 100644
+--- a/src/components/Learn/index.tsx
++++ b/src/components/Learn/index.tsx
+@@ -1,9 +1,15 @@
+ import { FC } from 'react'
+ 
++import CardsContainer from '#components/CardsContainer'
++
+ // import styles from './index.module.scss'
+ 
+ const Learn: FC = () => {
+-  return <div className="content-wrapper flex-column-center ">LEEEARN</div>
++  return (
++    <div className="content-wrapper">
++      <CardsContainer />
++    </div>
++  )
+ }
+ 
+ export default Learn
+diff --git a/src/components/Logo/index.module.scss b/src/components/Logo/index.module.scss
+index baaee41..3cd0a13 100644
+--- a/src/components/Logo/index.module.scss
++++ b/src/components/Logo/index.module.scss
+@@ -1 +1,28 @@
+ @use '../../sass/base/constants' as *;
++
++.gridLogoContainer {
++  height: 120px;
++  width: 390px;
++  display: grid;
++  grid-template-columns: repeat(3, 130px);
++  grid-template-rows: 60px 40px;
++}
++
++.heading1 {
++  text-align: center;
++  align-self: center;
++  grid-column: 1 / 4;
++  grid-row: 1 / 3;
++}
++
++.heading2 {
++  text-align: center;
++  align-self: center;
++  grid-column: 2 / 3;
++  grid-row: 2 / 3;
++}
++
++.logoImage {
++  grid-column: 3 / 4;
++  grid-row: 2 / 3;
++}
+diff --git a/src/components/Logo/index.tsx b/src/components/Logo/index.tsx
+index d8b2800..bc71562 100644
+--- a/src/components/Logo/index.tsx
++++ b/src/components/Logo/index.tsx
+@@ -1,14 +1,15 @@
+ import { FC } from 'react'
+ 
+-import flagImg from '../../../public/images/italy-96.png'
++import flagImg from '../../../public/images/italy-100.png'
++import styles from './index.module.scss'
+ 
+ const LogoSmall: FC = () => {
+   return (
+-    <div className="logo flex-column-center">
++    <div className="logo gridLogoContainer">
+       <h3>Learn Italian</h3>
+       <p>playing</p>
+       <a href="">
+-        <img src={flagImg} height="60px" />
++        <img src={flagImg} height="30px" />
+       </a>
+     </div>
+   )
+@@ -28,21 +29,12 @@ const LogoMedium: FC = () => {
+ 
+ const LogoLarge: FC = () => {
+   return (
+-    <div className="logo flex-row-center">
+-      <div className="flex-column-center">
+-        <h1>Learn Italian</h1>
+-        <div className="flex-row-center">
+-          <h3>playing</h3>
+-          <a href="">
+-            <img src={flagImg} height="60px" />
+-          </a>
+-        </div>
+-      </div>
+-      {/* <div>
+-        <a href="">
+-          <img src={flagImg} height="60px" />
+-        </a>
+-      </div> */}
++    <div className={`logo ${styles.gridLogoContainer}`}>
++      <h1 className={styles.heading1}>Learn Italian</h1>
++      <h3 className={styles.heading2}>playing</h3>
++      <a href="" className={styles.logoImage}>
++        <img src={flagImg} height="100%" />
++      </a>
+     </div>
+   )
+ }
+diff --git a/src/components/Support/index.module.scss b/src/components/Support/index.module.scss
+deleted file mode 100644
+index 2f93a30..0000000
+--- a/src/components/Support/index.module.scss
++++ /dev/null
+@@ -1,6 +0,0 @@
+-@use '../../sass/base/constants' as *;
+-
+-.welcome_speech {
+-  background-color: white;
+-  color: $color-text-s;
+-}
+diff --git a/src/components/Support/index.tsx b/src/components/Support/index.tsx
+deleted file mode 100644
+index 688ac1a..0000000
+--- a/src/components/Support/index.tsx
++++ /dev/null
+@@ -1,9 +0,0 @@
+-import { FC } from 'react'
+-
+-// import styles from './index.module.scss'
+-
+-const Support: FC = () => {
+-  return <div className="content-wrapper flex-column-center ">Support</div>
+-}
+-
+-export default Support
+diff --git a/src/components/Train/index.tsx b/src/components/Train/index.tsx
+index 8431baf..6702c48 100644
+--- a/src/components/Train/index.tsx
++++ b/src/components/Train/index.tsx
+@@ -1,9 +1,15 @@
+ import { FC } from 'react'
+ 
++import TrainCards from '#components/TrainCards'
++
+ // import styles from './index.module.scss'
+ 
+ const Train: FC = () => {
+-  return <div className="content-wrapper flex-column-center ">Traaain</div>
++  return (
++    <div className="content-wrapper">
++      <TrainCards />
++    </div>
++  )
+ }
+ 
+ export default Train
+diff --git a/src/components/WelcomingPage/Card/index.module.scss b/src/components/WelcomingPage/Card/index.module.scss
+index 9b9a83f..6aff8e0 100644
+--- a/src/components/WelcomingPage/Card/index.module.scss
++++ b/src/components/WelcomingPage/Card/index.module.scss
+@@ -1,32 +1,43 @@
+-@use '../../sass/base/constants' as *;
++@use '../../../sass/base/constants' as *;
+ 
+ .cardItemWrapper {
+-  height: 100%;
+-  width: 300px;
+   border: 8px solid $color-primary-light;
+   border-radius: 10px;
+   background-color: $color-primary-light;
++  color: $color-text-s;
++  height: 100%;
++  width: 100%;
+   .cardImageWrapper {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-top-right-radius: 10px;
+     border-top-left-radius: 10px;
+-    height: 70%;
++    height: 50%;
+     width: 100%;
+     background-color: $color-contrastic-1;
+   }
+   .cardTextWrapper {
++    padding: 20px;
++    display: flex;
++    flex-direction: column;
++    justify-content: center;
++    text-align: center;
++    align-items: center;
++    row-gap: 10px;
+     border-bottom-right-radius: 10px;
+     border-bottom-left-radius: 10px;
+-    height: 30%;
++    height: 50%;
+     width: 100%;
+     background-color: white;
+   }
+   img {
+     border-radius: 10px;
+     display: block;
+-    height: 80%;
+-    width: 80%;
++    height: 50%;
+   }
+ }
++
++.cardHeader {
++  font-size: 22px;
++}
+diff --git a/src/components/WelcomingPage/Card/index.tsx b/src/components/WelcomingPage/Card/index.tsx
+index d7233c2..14389cf 100644
+--- a/src/components/WelcomingPage/Card/index.tsx
++++ b/src/components/WelcomingPage/Card/index.tsx
+@@ -6,17 +6,20 @@ type Props = {
+   heading: string
+   description: string
+   imgSrc: string
++  className: string
+ }
+ 
+-const Card: FC<Props> = ({ heading, description, imgSrc }) => {
++const Card: FC<Props> = ({ heading, description, imgSrc, className }) => {
+   return (
+-    <div className={styles.cardItemWrapper}>
+-      <div className={styles.cardImageWrapper}>
+-        <img src={imgSrc} />
+-      </div>
+-      <div className={styles.cardTextWrapper}>
+-        <p>{heading}</p>
+-        <p>{description}</p>
++    <div className={className}>
++      <div className={styles.cardItemWrapper}>
++        <div className={styles.cardImageWrapper}>
++          <img src={imgSrc} />
++        </div>
++        <div className={styles.cardTextWrapper}>
++          <p className={styles.cardHeader}>{heading}</p>
++          <p>{description}</p>
++        </div>
+       </div>
+     </div>
+   )
+diff --git a/src/components/WelcomingPage/index.module.scss b/src/components/WelcomingPage/index.module.scss
+index 2f93a30..56adc44 100644
+--- a/src/components/WelcomingPage/index.module.scss
++++ b/src/components/WelcomingPage/index.module.scss
+@@ -4,3 +4,43 @@
+   background-color: white;
+   color: $color-text-s;
+ }
++
++.appealingText {
++  font-size: $extra-large;
++  color: $color-text-bright;
++}
++
++.cardGridWrapper {
++  margin-left: 40px;
++  display: grid;
++  min-height: 700px;
++  min-width: 600px;
++  grid-template-columns: repeat(6, minmax(30px, 1fr));
++  grid-template-rows: repeat(8, minmax(30px, 1fr));
++  column-gap: 16px;
++  row-gap: 16px;
++}
++
++.cardGrid1 {
++  grid-column: 1 / 4;
++  grid-row: 1 / 4;
++}
++
++.cardGrid2 {
++  grid-column: 4 / 7;
++  grid-row: 1 / 5;
++}
++
++.cardGrid3 {
++  grid-column: 1 / 4;
++  grid-row: 4 / 9;
++}
++
++.cardGrid4 {
++  grid-column: 4 / 7;
++  grid-row: 5 / 9;
++}
++
++.noop {
++  height: 900px;
++}
+diff --git a/src/components/WelcomingPage/index.tsx b/src/components/WelcomingPage/index.tsx
+index 3a8d3e4..71b2944 100644
+--- a/src/components/WelcomingPage/index.tsx
++++ b/src/components/WelcomingPage/index.tsx
+@@ -1,17 +1,62 @@
+ import { FC } from 'react'
+ 
+-import italianMan from '../../../public/images/italian-man.png'
++import ButtonPrimary from '#components/buttons'
++
++import colosseum from '../../../public/images/colosseum-100.png'
++import lasagna from '../../../public/images/lasagna-64.png'
++import coffee from '../../../public/images/moka-pot-64.png'
++import pizza from '../../../public/images/pizza-slice-64.png'
++import Card from './Card'
++import GreetCard from './GreetCard'
+ import styles from './index.module.scss'
+ 
+ const WelcomingPage: FC = () => {
+   return (
+-    <div className="content-wrapper flex-column-center ">
+-      <div className={styles.welcome_speech}>
+-        <h2>You can Learn la bella Italian language</h2>
+-        <p>playing</p>
+-        <img src={italianMan} height="280px" />
++    <>
++      <div className="content-wrapper flex-row-center">
++        <div className="flex-column-center">
++          <GreetCard></GreetCard>
++          <ButtonPrimary
++            onClick={() => {
++              alert('route to learning page')
++            }}
++          >
++            Start learning
++          </ButtonPrimary>
++        </div>
++        <div>
++          <div className={styles.cardGridWrapper}>
++            <Card
++              heading={'Ordering your pizza...'}
++              description={'using local language'}
++              imgSrc={pizza}
++              className={styles.cardGrid1}
++            />
++
++            <Card
++              heading={'Sipping your coffee...'}
++              description={'and having a little chat with a waiter'}
++              imgSrc={coffee}
++              className={styles.cardGrid2}
++            />
++            <Card
++              heading={'Expressing your impressions...'}
++              description={'melodically and emotionally'}
++              imgSrc={colosseum}
++              className={styles.cardGrid3}
++            />
++            <Card
++              heading={'Walking around the streets...'}
++              description={'and ask locals how to go to Uficci gallery'}
++              imgSrc={lasagna}
++              className={styles.cardGrid4}
++            />
++          </div>
++        </div>
+       </div>
+-    </div>
++      <div className={styles.noop}></div>
++      <div className={styles.noop}></div>
++    </>
+   )
+ }
+ 
+diff --git a/src/sass/base/_constants.scss b/src/sass/base/_constants.scss
+index 3b8051d..e5d058d 100644
+--- a/src/sass/base/_constants.scss
++++ b/src/sass/base/_constants.scss
+@@ -10,6 +10,7 @@ $color-contrastic-4: #62ecde;
+ 
+ $color-disabled: #cdd6ec;
+ 
++$color-text-xs: #311d6d;
+ $color-text-s: #221250;
+ $color-text-l: #170841;
+ $color-text-bright: #f5a617;
+@@ -23,6 +24,8 @@ $size-s: 600px;
+ $size-xs: 375px;
+ $size-xxs: 320px;
+ 
+-$large: 28px;
+-$medium: 20px;
+-$small: 16px;
++$extra-large: 48px;
++$large: 36px;
++$medium: 24px;
++$small: 20px;
++$extra-small: 16px;
+diff --git a/src/sass/base/_resets.scss b/src/sass/base/_resets.scss
+index 2ddcbed..a725b9f 100644
+--- a/src/sass/base/_resets.scss
++++ b/src/sass/base/_resets.scss
+@@ -10,12 +10,18 @@ body {
+ }
+ 
+ html {
+-  height: 100%;
++  min-height: 100vh;
+ }
+ body {
+   min-height: 100vh;
+ }
+ 
++button {
++  border: none;
++  cursor: pointer;
++  color: unset;
++}
++
+ a {
+   text-decoration: none;
+   display: block;
+diff --git a/src/sass/base/_typography.scss b/src/sass/base/_typography.scss
+index 7cfe418..eb9e106 100644
+--- a/src/sass/base/_typography.scss
++++ b/src/sass/base/_typography.scss
+@@ -28,3 +28,21 @@ h3 {
+ p {
+   font-size: 16px;
+ }
++
++.highlighted {
++  font-size: 30px;
++  color: $color-secondary;
++}
++
++$colors: (
++  '$color-contrastic-1': #53dccc,
++  '$color-contrastic-2': #c8b3ff,
++  '$color-contrastic-3': #73ddff,
++  '$color-contrastic-4': #62ecde,
++);
++
++@each $name, $val in $colors {
++  div[color-txt='#{$name}'] {
++    color: $val;
++  }
++}
+diff --git a/src/sass/global-components/_buttons.scss b/src/sass/global-components/_buttons.scss
+index e69de29..f08b803 100644
+--- a/src/sass/global-components/_buttons.scss
++++ b/src/sass/global-components/_buttons.scss
+@@ -0,0 +1,6 @@
++.rightAnswer {
++  background-color: $color-contrastic-1;
++}
++.wrongAnswer {
++  background-color: $color-primary-light;
++}
+diff --git a/src/sass/layout/_backgrounds.scss b/src/sass/layout/_backgrounds.scss
+index f0bf2cd..3ea9976 100644
+--- a/src/sass/layout/_backgrounds.scss
++++ b/src/sass/layout/_backgrounds.scss
+@@ -5,3 +5,36 @@
+ .swiper-slide-active .swiper-slide {
+   height: 100%;
+ }
++
++.pictures {
++  .backImage1 {
++    position: absolute;
++    top: 110px;
++    left: 990px;
++  }
++  .backImage2 {
++    position: absolute;
++    top: 88px;
++    left: 880px;
++  }
++  .backImage3 {
++    position: absolute;
++    top: 180px;
++    left: 860px;
++  }
++  .backImage4 {
++    position: absolute;
++    top: 90px;
++    left: 1080px;
++  }
++  .backImage5 {
++    position: absolute;
++    top: 70px;
++    left: 730px;
++  }
++  .backImage6 {
++    position: absolute;
++    top: 60px;
++    left: 30px;
++  }
++}
+diff --git a/src/sass/layout/_displaying.scss b/src/sass/layout/_displaying.scss
+index 75a0ea6..e1db51a 100644
+--- a/src/sass/layout/_displaying.scss
++++ b/src/sass/layout/_displaying.scss
+@@ -11,6 +11,13 @@
+   align-items: center;
+ }
+ 
++.flex-row-reverse-center {
++  display: flex;
++  flex-direction: row-reverse;
++  justify-content: center;
++  align-items: center;
++}
++
+ .grid_main_layout {
+   display: grid;
+   grid-template-rows: minmax(100px, 10vh) 1fr minmax(80px, 10vh);
+diff --git a/src/sass/layout/_sizing.scss b/src/sass/layout/_sizing.scss
+index 01901ef..9a8a867 100644
+--- a/src/sass/layout/_sizing.scss
++++ b/src/sass/layout/_sizing.scss
+@@ -1,8 +1,8 @@
+-.content_wrapper {
++.content-wrapper {
+   width: 85vw;
+   margin: 0 auto;
+ }
+ 
+ .full-height {
+-  height: 100vh;
++  min-height: 100vh;
+ }
+diff --git a/webpack.config.js b/webpack.config.js
+index 087f2db..937b2fe 100644
+--- a/webpack.config.js
++++ b/webpack.config.js
+@@ -47,21 +47,17 @@ let config = {
+         test: /\.css$/,
+         use: ['style-loader', 'css-loader'],
+       },
+-      // {
+-      //   test: /\.svg$/,
+-      //   use: [
+-      //     {
+-      //       loader: '@svgr/webpack',
+-      //       options: {},
+-      //     },
+-      //     'url-loader',
+-      //   ],
+-      // },
+       {
+-        test: /\.svg$/i,
+-        issuer: /\.[jt]sx?$/,
+-        use: [{ loader: '@svgr/webpack', options: { icon: true } }],
++        test: /\.svg$/,
++        use: [
++          {
++            loader: '@svgr/webpack',
++            options: {},
++          },
++          'url-loader',
++        ],
+       },
++
+       {
+         test: /\.png$/i,
+         issuer: /\.[jt]sx?$/,
+@@ -79,7 +75,6 @@ let config = {
+     },
+     extensions: ['.js', '.ts', '.tsx'],
+   },
+-  // devtool: "source-map",
+   plugins: [
+     new HtmlWebpackPlugin({
+       template: './src/index.html',
+@@ -88,6 +83,9 @@ let config = {
+       filename: './bundle.css',
+     }),
+   ],
++  devServer: {
++    historyApiFallback: true,
++  },
+   performance: {
+     hints: false,
+     maxEntrypointSize: 512000,
