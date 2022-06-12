@@ -5,37 +5,31 @@ import styles from './index.module.scss'
 
 const LogoSmall: FC = () => {
   return (
-    <div className="logo gridLogoContainer">
+    <a href="" className="logo gridLogoContainer">
       <h3>Learn Italian</h3>
       <p>playing</p>
-      <a href="">
-        <img src={flagImg} height="30px" />
-      </a>
-    </div>
+      <img src={flagImg} height="30px" />
+    </a>
   )
 }
 
 const LogoMedium: FC = () => {
   return (
-    <div className="logo flex-column-center">
+    <a href="" className="logo flex-column-center">
       <h2>Learn Italian</h2>
       <h3>playing</h3>
-      <a href="">
-        <img src={flagImg} height="60px" />
-      </a>
-    </div>
+      <img src={flagImg} height="60px" />
+    </a>
   )
 }
 
 const LogoLarge: FC = () => {
   return (
-    <div className={`logo ${styles.gridLogoContainer}`}>
+    <a href="" className={`logo ${styles.gridLogoContainer}`}>
       <h1 className={styles.heading1}>Learn Italian</h1>
       <h3 className={styles.heading2}>playing</h3>
-      <a href="" className={styles.logoImage}>
-        <img src={flagImg} height="100%" />
-      </a>
-    </div>
+      <img className={styles.logoImage} src={flagImg} height="100%" />
+    </a>
   )
 }
 

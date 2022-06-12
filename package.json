@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/mariia-kiliushina/learn-english-game#readme",
   "dependencies": {
+    "bootstrap": "^5.1.3",
     "mixpanel-browser": "^2.45.0",
     "random-words": "^1.1.2",
     "react": "^18.1.0",
+    "react-bootstrap": "^2.4.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "swiper": "^8.2.2"

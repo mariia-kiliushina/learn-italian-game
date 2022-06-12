@@ -14,7 +14,7 @@ type Props = {
     italianWord: string
     imageSrc: string
     englishWord: string
-    wrongAnswer: string | undefined
+    wrongAnswer: string[] | undefined
   }
   userScore: number
   setUserScore: (userScore: number) => void

@@ -1,6 +1,5 @@
 import { FC } from 'react'
-
-import ButtonPrimary from '#components/buttons'
+import Button from 'react-bootstrap/Button'
 
 import colosseum from '../../../public/images/colosseum-100.png'
 import lasagna from '../../../public/images/lasagna-64.png'
@@ -16,13 +15,13 @@ const WelcomingPage: FC = () => {
       <div className="content-wrapper flex-row-center">
         <div className="flex-column-center">
           <GreetCard></GreetCard>
-          <ButtonPrimary
+          <Button
             onClick={() => {
               alert('route to learning page')
             }}
           >
             Start learning
-          </ButtonPrimary>
+          </Button>
         </div>
         <div>
           <div className={styles.cardGridWrapper}>
