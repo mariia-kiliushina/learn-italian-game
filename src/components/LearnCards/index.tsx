@@ -1,4 +1,5 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { Pagination } from 'swiper'
 import { Navigation } from 'swiper'
@@ -10,7 +11,8 @@ import 'swiper/scss/zoom'
 
 import ButtonPrimary from '#components/buttons'
 
-import Card from '../../components/Card'
+import { fetchCards } from '../../redux/sliceReducer'
+import Card from '../Card'
 import styles from './index.module.scss'
 
 type Word = {
@@ -20,19 +22,20 @@ type Word = {
   imageSrc: string
 }
 
-const CardsContainer: FC = () => {
-  let [myData, setMyData] = useState<Word[]>([])
+const LearnCards: FC = () => {
+  const dispatch = useDispatch() // @ts-ignore
+  const { cards } = useSelector((state) => state.reducer)
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('https://raw.githubusercontent.com/mariia-kiliushina/learn-italian-db/master/data.json')
-      .then((response) => response.json())
-      .then((data) => Object.values(data) as Word[])
-      .then(setMyData)
+    if (cards.length === 0) {
+      // @ts-ignore
+      dispatch(fetchCards())
+    } else return
   }, [])
 
   return (
-    <div>
+    <div className={styles.cards_wrapper}>
       <Swiper
         slidesPerView={1}
         centeredSlides={true}
@@ -44,7 +47,7 @@ const CardsContainer: FC = () => {
         }}
         className={styles.mySwiper}
       >
-        {myData.map((word) => {
+        {cards.map((word: Word) => {
           return (
             <SwiperSlide className={styles.mySwiperSlide}>
               <Card
@@ -68,4 +71,4 @@ const CardsContainer: FC = () => {
   )
 }
 
-export default CardsContainer
+export default LearnCards

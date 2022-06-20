@@ -1,0 +1,10 @@
+@use '../../sass/base/constants' as *;
+
+.btn-primary {
+  background-color: $color-secondary;
+  border: none;
+  color: $color-text-s;
+  &:hover {
+    background-color: $color-text-bright;
+  }
+}

@@ -6,7 +6,7 @@ import TrainCards from '#components/TrainCards'
 
 const Train: FC = () => {
   return (
-    <div className="content-wrapper">
+    <div className="content-wrapper ">
       <TrainCards />
     </div>
   )

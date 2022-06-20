@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { Provider } from 'react-redux'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
 import About from '#components/About'
@@ -15,28 +16,25 @@ import WelcomingPage from '#components/WelcomingPage'
 // import study from '../public/images/study.png'
 import Footer from './components/Footer'
 import Header from './components/Header'
+import { store } from './redux/store'
 
 const App: FC = () => {
   return (
-    <div className="primary-background full-height grid_main_layout pictures">
+    <Provider store={store}>
       <Router>
-        {/* <img className="backImage1" src={book} alt="" height="64px" />
-        <img className="backImage2" src={brain} alt="" height="64px" />
-        <img className="backImage3" src={hands} alt="" height="64px" />
-        <img className="backImage4" src={glasses} alt="" height="64px" />
-        <img className="backImage5" src={handWithPen} alt="" height="64px" />
-        <img className="backImage6" src={study} alt="" height="64px" /> */}
-        <Header />
-        <Routes>
-          <Route path="/" element={<WelcomingPage />} />
-          <Route path="learn" element={<Learn />} />
-          <Route path="train" element={<Train />} />
-          <Route path="about" element={<About />} />
-          <Route path="profile" element={<Profile />} />
-        </Routes>
-        <Footer />
+        <div className="primary-background full-height grid-main-layout">
+          <Header />
+          <Routes>
+            <Route path="/" element={<WelcomingPage />} />
+            <Route path="learn" element={<Learn />} />
+            <Route path="train" element={<Train />} />
+            <Route path="about" element={<About />} />
+            <Route path="profile" element={<Profile />} />
+          </Routes>
+          <Footer />
+        </div>
       </Router>
-    </div>
+    </Provider>
   )
 }
 

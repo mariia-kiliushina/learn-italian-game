@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 
+import Avatar from '#components/Avatar'
 import { LogoLarge } from '#components/Logo'
 
 import styles from './index.module.scss'
@@ -26,6 +27,7 @@ const Header: FC = () => {
           <li className={styles.navigation_item}>
             <Link to="/profile">Profile</Link>
           </li>
+          <Avatar />
         </ul>
       </nav>
     </header>

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import CardsContainer from '#components/CardsContainer'
+import CardsContainer from '#components/LearnCards'
 
 // import styles from './index.module.scss'
 

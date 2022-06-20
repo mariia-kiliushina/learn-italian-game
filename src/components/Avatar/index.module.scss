@@ -1,0 +1,8 @@
+@use '../../sass/base/constants' as *;
+
+.styles.avatar_container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: $color-text-s;
+}

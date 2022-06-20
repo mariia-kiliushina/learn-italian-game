@@ -1,7 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import randomWords from 'random-words'
 import { FC, useEffect, useState } from 'react'
 import { Button, Modal } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { Pagination } from 'swiper'
 import { Navigation } from 'swiper'
@@ -12,10 +11,11 @@ import 'swiper/scss'
 import 'swiper/scss/pagination'
 import 'swiper/scss/zoom'
 
-import Loader from '#components/Loader'
-
 import italianMan from '../../../public/images/italian-man.png'
-import CardWithWords from './CardWithWords'
+import { fetchCards } from '../../redux/sliceReducer'
+import Card from '../Card'
+import Loader from '../Loader'
+import AnswerButtons from './AnswerButtons'
 import Score from './Score'
 import styles from './index.module.scss'
 
@@ -28,7 +28,11 @@ type Word = {
 }
 
 const TrainCards: FC = () => {
-  let [myData, setMyData] = useState<Word[] | undefined>(undefined)
+  const dispatch = useDispatch()
+  //@ts-ignore
+  const { cards, loading } = useSelector((state) => state.reducer)
+  const navigate = useNavigate()
+
   let [userScore, setUserScore] = useState<number>(0)
   //TODO change to appropriate typing
   let [shownCards, setShownCards] = useState<any>([])
@@ -40,25 +44,16 @@ const TrainCards: FC = () => {
   const [isModalShown, setIsModalShown] = useState(true)
   const handleClose = () => setIsModalShown(false)
 
-  const navigate = useNavigate()
-
   useEffect(() => {
-    fetch('https://raw.githubusercontent.com/mariia-kiliushina/learn-italian-db/master/data.json')
-      .then((response) => response.json())
-      .then((data) => Object.values(data) as Word[])
-      .then((myData) => {
-        setMyData(
-          myData.map((word: Word) => ({
-            ...word,
-            wrongAnswer: randomWords(1),
-          })),
-        )
-      })
+    if (cards.length === 0) {
+      // @ts-ignore
+      dispatch(fetchCards())
+    } else return
   }, [])
 
-  if (myData === undefined) return <Loader />
+  if (loading) return <Loader />
 
-  const myNewDataFiltered = myData.filter((word) => shownCards.includes(word.id) === false)
+  const myNewDataFiltered = cards.filter((word: Word) => shownCards.includes(word.id) === false)
 
   return (
     <>
@@ -106,7 +101,7 @@ const TrainCards: FC = () => {
         </Modal>
       )}
 
-      <Score score={userScore} numberOfCards={myData.length} />
+      <Score score={userScore} numberOfCards={cards.length} />
 
       {Boolean(myNewDataFiltered.length) && (
         <Swiper
@@ -116,12 +111,15 @@ const TrainCards: FC = () => {
           modules={[Navigation, Pagination]}
           className={styles.mySwiper}
         >
-          {myNewDataFiltered.map((word) => {
+          {myNewDataFiltered.map((word: Word) => {
             return (
               <SwiperSlide className={styles.mySwiperSlide}>
-                <CardWithWords
+                <Card italianWord={word.italianWord} imageSrc={word.imageSrc} />
+                <AnswerButtons
                   key={word.id}
-                  word={word}
+                  id={word.id}
+                  englishWord={word.englishWord}
+                  wrongAnswer={word.wrongAnswer}
                   userScore={userScore}
                   setUserScore={setUserScore}
                   addSlidesToHistory={addSlidesToHistory}
