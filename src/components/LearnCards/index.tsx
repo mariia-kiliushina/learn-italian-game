@@ -1,4 +1,5 @@
 import { FC, useEffect } from 'react'
+import Button from 'react-bootstrap/Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { Pagination } from 'swiper'
@@ -8,8 +9,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/scss'
 import 'swiper/scss/pagination'
 import 'swiper/scss/zoom'
-
-import ButtonPrimary from '#components/buttons'
 
 import { fetchCards } from '../../redux/sliceReducer'
 import Card from '../Card'
@@ -35,7 +34,7 @@ const LearnCards: FC = () => {
   }, [])
 
   return (
-    <div className={styles.cards_wrapper}>
+    <div className="flex-column-center">
       <Swiper
         slidesPerView={1}
         centeredSlides={true}
@@ -60,13 +59,13 @@ const LearnCards: FC = () => {
           )
         })}
       </Swiper>
-      <ButtonPrimary
+      <Button
         onClick={() => {
           navigate('/train')
         }}
       >
         I learnt all words
-      </ButtonPrimary>
+      </Button>
     </div>
   )
 }

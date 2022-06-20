@@ -4,12 +4,10 @@
   width: 700px;
   padding-top: 30px;
   .mySwiperSlide {
-    align-self: center;
+    align-self: flex-start;
     display: flex !important;
+    flex-direction: column;
     justify-content: center !important;
     align-items: center !important;
   }
-}
-
-.cards_wrapper {
 }
