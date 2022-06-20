@@ -4,3 +4,7 @@
 .wrongAnswer {
   background-color: $color-primary-light !important;
 }
+
+.disabled {
+  pointer-events: none;
+}

@@ -42,7 +42,9 @@ const TrainCards: FC = () => {
   }
 
   const [isModalShown, setIsModalShown] = useState(true)
-  const handleClose = () => setIsModalShown(false)
+  const handleClose = () => {
+    setIsModalShown(false)
+  }
 
   useEffect(() => {
     if (cards.length === 0) {
@@ -53,14 +55,19 @@ const TrainCards: FC = () => {
 
   if (loading) return <Loader />
 
+  const cardsShownPerSession = 5
   const myNewDataFiltered = cards.filter((word: Word) => shownCards.includes(word.id) === false)
+  const sliced = myNewDataFiltered.slice(cardsShownPerSession)
 
   return (
     <>
-      {!myNewDataFiltered.length && (
+      {!sliced.length && (
         <Modal
           show={isModalShown}
-          onHide={handleClose}
+          onHide={() => {
+            setShownCards([])
+            handleClose
+          }}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
@@ -73,7 +80,7 @@ const TrainCards: FC = () => {
               <div className={`flex-column-center ${styles.textModalWrapper}`}>
                 <h2>You have succesfully finished this lesson</h2>
                 <h2 className={`flex-row-center ${styles.rowGapModalWrapper}`}>
-                  Your score is <p className="highlighted"> {`${userScore}`}</p>
+                  You've earned <p className="highlighted"> {`${userScore}`} points</p>
                 </h2>
               </div>
               <img
@@ -88,6 +95,7 @@ const TrainCards: FC = () => {
             <Button
               variant="secondary"
               onClick={() => {
+                setShownCards([])
                 navigate('/learn')
                 handleClose
               }}
@@ -109,7 +117,7 @@ const TrainCards: FC = () => {
 
       <Score score={userScore} numberOfCards={cards.length} />
 
-      {Boolean(myNewDataFiltered.length) && (
+      {Boolean(sliced.length) && (
         <Swiper
           slidesPerView={1}
           centeredSlides={true}
@@ -117,7 +125,7 @@ const TrainCards: FC = () => {
           modules={[Navigation, Pagination]}
           className={styles.mySwiper}
         >
-          {myNewDataFiltered.map((word: Word) => {
+          {sliced.map((word: Word) => {
             return (
               <SwiperSlide className={styles.mySwiperSlide}>
                 <Card italianWord={word.italianWord} imageSrc={word.imageSrc} />
