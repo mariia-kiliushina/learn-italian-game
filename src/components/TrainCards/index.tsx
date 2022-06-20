@@ -12,7 +12,7 @@ import 'swiper/scss/pagination'
 import 'swiper/scss/zoom'
 
 import italianMan from '../../../public/images/italian-man.png'
-import { fetchCards } from '../../redux/sliceReducer'
+import { fetchCards, setScore } from '../../redux/sliceReducer'
 import Card from '../Card'
 import Loader from '../Loader'
 import AnswerButtons from './AnswerButtons'
@@ -30,10 +30,9 @@ type Word = {
 const TrainCards: FC = () => {
   const dispatch = useDispatch()
   //@ts-ignore
-  const { cards, loading } = useSelector((state) => state.reducer)
+  const { cards, score, loading } = useSelector((state) => state.reducer)
   const navigate = useNavigate()
 
-  let [userScore, setUserScore] = useState<number>(0)
   //TODO change to appropriate typing
   let [shownCards, setShownCards] = useState<any>([])
 
@@ -73,7 +72,7 @@ const TrainCards: FC = () => {
               <div className={`flex-column-center ${styles.textModalWrapper}`}>
                 <h2>You have succesfully finished this lesson</h2>
                 <h2 className={`flex-row-center ${styles.rowGapModalWrapper}`}>
-                  Your score is <p className="highlighted"> {`${userScore}`}</p>
+                  Your score is <p className="highlighted"> {`${score}`}</p>
                 </h2>
               </div>
               <img
@@ -94,14 +93,20 @@ const TrainCards: FC = () => {
             >
               Go to learning
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button
+              variant="primary"
+              onClick={() => {
+                setShownCards([])
+                handleClose
+              }}
+            >
               Continue training
             </Button>
           </Modal.Footer>
         </Modal>
       )}
 
-      <Score score={userScore} numberOfCards={cards.length} />
+      <Score score={score} numberOfCards={cards.length} />
 
       {Boolean(myNewDataFiltered.length) && (
         <Swiper
@@ -120,8 +125,7 @@ const TrainCards: FC = () => {
                   id={word.id}
                   englishWord={word.englishWord}
                   wrongAnswer={word.wrongAnswer}
-                  userScore={userScore}
-                  setUserScore={setUserScore}
+                  setUserScore={setScore}
                   addSlidesToHistory={addSlidesToHistory}
                   randomNum={Math.random()}
                 />

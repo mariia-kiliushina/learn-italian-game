@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import Button from 'react-bootstrap/Button'
+import { useNavigate } from 'react-router-dom'
 
 import colosseum from '../../../public/images/colosseum-100.png'
 import lasagna from '../../../public/images/lasagna-64.png'
@@ -10,6 +11,7 @@ import GreetCard from './GreetCard'
 import styles from './index.module.scss'
 
 const WelcomingPage: FC = () => {
+  const navigate = useNavigate()
   return (
     <>
       <div className="content-wrapper flex-row-center">
@@ -17,7 +19,7 @@ const WelcomingPage: FC = () => {
           <GreetCard></GreetCard>
           <Button
             onClick={() => {
-              alert('route to learning page')
+              navigate('/learn')
             }}
           >
             Start learning

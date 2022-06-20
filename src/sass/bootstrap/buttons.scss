@@ -2,9 +2,27 @@
 
 .btn-primary {
   background-color: $color-secondary;
+  box-shadow: none;
   border: none;
-  color: $color-text-s;
+  color: white;
   &:hover {
     background-color: $color-text-bright;
+    box-shadow: 0 0 0 0.25rem $color-secondary;
+    border: none;
+  }
+  &:focus {
+    background-color: $color-secondary;
+    box-shadow: none;
+    border: none;
+  }
+  &:active {
+    background-color: $color-secondary;
+    box-shadow: none;
+    border: none;
+  }
+  &:active:focus {
+    background-color: $color-secondary;
+    box-shadow: none;
+    border: none;
   }
 }

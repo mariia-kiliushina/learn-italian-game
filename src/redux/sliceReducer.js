@@ -14,6 +14,7 @@ export const fetchCards = createAsyncThunk('fetchCards', async (thunkAPI) => {
 
 const initialState = {
   userName: '',
+  userScore: 0,
   cards: [],
   loading: false,
   error: '',
@@ -25,6 +26,9 @@ const slicerReducer = createSlice({
   reducers: {
     setName: (state, action) => {
       state.userName = action.payload
+    },
+    setScore: (state) => {
+      state.userScore += 1
     },
   },
   extraReducers: (builder) => {
@@ -43,5 +47,5 @@ const slicerReducer = createSlice({
   },
 })
 
-export const { setName } = slicerReducer.actions
+export const { setName, setScore } = slicerReducer.actions
 export default slicerReducer.reducer
