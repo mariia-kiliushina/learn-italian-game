@@ -1,13 +1,12 @@
 @use '../../sass/base/constants' as *;
 .mySwiper {
-  height: 600px;
+  height: 620px;
   width: 700px;
-  padding-top: 30px;
+  padding-top: 90px;
   .mySwiperSlide {
     align-self: flex-start;
     display: flex !important;
     flex-direction: column;
-    justify-content: center !important;
     align-items: center !important;
   }
 }

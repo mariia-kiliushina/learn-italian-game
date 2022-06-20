@@ -31,7 +31,7 @@ type Word = {
 const TrainCards: FC = () => {
   const dispatch = useDispatch()
   //@ts-ignore
-  const { cards, score, loading } = useSelector((state) => state.reducer)
+  const { cards, userScore, loading } = useSelector((state) => state.reducer)
   const navigate = useNavigate()
 
   //TODO change to appropriate typing
@@ -73,7 +73,7 @@ const TrainCards: FC = () => {
               <div className={`flex-column-center ${styles.textModalWrapper}`}>
                 <h2>You have succesfully finished this lesson</h2>
                 <h2 className={`flex-row-center ${styles.rowGapModalWrapper}`}>
-                  Your score is <p className="highlighted"> {`${score}`}</p>
+                  Your score is <p className="highlighted"> {`${userScore}`}</p>
                 </h2>
               </div>
               <img
@@ -107,7 +107,7 @@ const TrainCards: FC = () => {
         </Modal>
       )}
 
-      <Score score={score} numberOfCards={cards.length} />
+      <Score score={userScore} numberOfCards={cards.length} />
 
       {Boolean(myNewDataFiltered.length) && (
         <Swiper
