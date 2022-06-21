@@ -57,8 +57,19 @@ const TrainCards: FC = () => {
   }, [])
 
   const cardsShownPerSession = 5
+
+  const shuffle = (a: any) => {
+    const aCopy = [...a]
+    for (let i = aCopy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[aCopy[i], aCopy[j]] = [aCopy[j], aCopy[i]]
+    }
+    return aCopy
+  }
+
   const myNewDataFiltered = cards.filter((word: Word) => shownCardsIds.includes(word.id) === false)
-  // const slicedArray = myNewDataFiltered.slice(cardsShownPerSession)
+
+  let shuffledCards = shuffle(myNewDataFiltered)
 
   if (loading) return <Loader />
   return (
@@ -163,7 +174,7 @@ const TrainCards: FC = () => {
 
       <Score score={userScore} numberOfCards={cards.length} />
 
-      {Boolean(myNewDataFiltered.length) && (
+      {Boolean(shuffledCards.length) && (
         <Swiper
           slidesPerView={1}
           centeredSlides={true}
@@ -171,7 +182,7 @@ const TrainCards: FC = () => {
           modules={[Navigation, Pagination]}
           className={styles.mySwiper}
         >
-          {myNewDataFiltered.map((word: Word) => {
+          {shuffledCards.map((word: Word) => {
             return (
               <SwiperSlide className={styles.mySwiperSlide}>
                 <Card italianWord={word.italianWord} imageSrc={word.imageSrc} />
