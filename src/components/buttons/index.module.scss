@@ -29,4 +29,7 @@
     box-shadow: none;
     border: none;
   }
+  &:disabled {
+    pointer-events: none;
+  }
 }

@@ -16,6 +16,7 @@ const initialState = {
   userName: '',
   userScore: 0,
   cards: [],
+  shownCardsIds: [],
   loading: false,
   error: '',
 }
@@ -29,6 +30,12 @@ const slicerReducer = createSlice({
     },
     setScore: (state) => {
       state.userScore += 1
+    },
+    setShownCardsIds: (state, action) => {
+      state.shownCardsIds.push(action.payload)
+    },
+    nullify: (state) => {
+      state.shownCardsIds = []
     },
   },
   extraReducers: (builder) => {
@@ -47,5 +54,5 @@ const slicerReducer = createSlice({
   },
 })
 
-export const { setName, setScore } = slicerReducer.actions
+export const { setName, setScore, setShownCardsIds, nullify } = slicerReducer.actions
 export default slicerReducer.reducer

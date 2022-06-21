@@ -6,13 +6,23 @@ type Props = {
   children: ReactNode
   onClick: (event: any) => void
   className?: string
+  disabled: boolean
 }
 
-const ButtonPrimary: FC<Props> = ({ children, onClick, className }) => {
+const ButtonPrimary: FC<Props> = ({ children, onClick, className, disabled }) => {
   return (
-    <button onClick={onClick} className={`${className} ${styles.buttonPrimary}`}>
-      {children}
-    </button>
+    <>
+      {!disabled && (
+        <button onClick={onClick} className={`${className} ${styles.buttonPrimary}`}>
+          {children}
+        </button>
+      )}
+      {disabled && (
+        <button disabled onClick={onClick} className={`${className} ${styles.buttonPrimary}`}>
+          {children}
+        </button>
+      )}
+    </>
   )
 }
 

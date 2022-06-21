@@ -13,7 +13,7 @@ import 'swiper/scss/pagination'
 import 'swiper/scss/zoom'
 
 import italianMan from '../../../public/images/italian-man.png'
-import { fetchCards, setScore } from '../../redux/sliceReducer'
+import { fetchCards, setScore, setShownCardsIds } from '../../redux/sliceReducer'
 import Card from '../Card'
 import Loader from '../Loader'
 import AnswerButtons from './AnswerButtons'
@@ -29,21 +29,24 @@ type Word = {
 }
 
 const TrainCards: FC = () => {
+  let [shownCardsState, setShownCardsState] = useState<number[]>([])
+
   const dispatch = useDispatch()
   //@ts-ignore
-  const { cards, userScore, loading } = useSelector((state) => state.reducer)
+  const { cards, shownCardsIds, userScore, loading } = useSelector((state) => state.reducer)
   const navigate = useNavigate()
 
-  //TODO change to appropriate typing
-  let [shownCards, setShownCards] = useState<any>([])
-
   const addSlidesToHistory = (id: number) => {
-    setShownCards([...shownCards, id])
+    dispatch(setShownCardsIds(id))
+    setShownCardsState([...shownCardsState, id])
   }
 
-  const [isModalShown, setIsModalShown] = useState(true)
+  const [isModalShown] = useState(true)
   const handleClose = () => {
-    setIsModalShown(false)
+    // setIsModalShown(false)
+    setShownCardsState([])
+    // @ts-ignore
+    dispatch(fetchCards())
   }
 
   useEffect(() => {
@@ -53,21 +56,17 @@ const TrainCards: FC = () => {
     } else return
   }, [])
 
-  if (loading) return <Loader />
-
   const cardsShownPerSession = 5
-  const myNewDataFiltered = cards.filter((word: Word) => shownCards.includes(word.id) === false)
-  const sliced = myNewDataFiltered.slice(cardsShownPerSession)
+  const myNewDataFiltered = cards.filter((word: Word) => shownCardsIds.includes(word.id) === false)
+  // const slicedArray = myNewDataFiltered.slice(cardsShownPerSession)
 
+  if (loading) return <Loader />
   return (
     <>
-      {!sliced.length && (
+      {shownCardsState.length === cardsShownPerSession && shownCardsIds.length !== cards.length && (
         <Modal
           show={isModalShown}
-          onHide={() => {
-            setShownCards([])
-            handleClose
-          }}
+          onHide={handleClose}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
@@ -95,18 +94,17 @@ const TrainCards: FC = () => {
             <Button
               variant="secondary"
               onClick={() => {
-                setShownCards([])
                 navigate('/learn')
-                handleClose
+                handleClose()
               }}
             >
               Go to learning
             </Button>
+
             <Button
               variant="primary"
               onClick={() => {
-                setShownCards([])
-                handleClose
+                handleClose()
               }}
             >
               Continue training
@@ -114,10 +112,58 @@ const TrainCards: FC = () => {
           </Modal.Footer>
         </Modal>
       )}
+      {shownCardsIds.length === cards.length && (
+        <Modal
+          show={isModalShown}
+          onHide={handleClose}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Congratulazioni!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className={`flex-row-reverse-center ${styles.rowGapModalWrapper}`}>
+              <div className={`flex-column-center ${styles.textModalWrapper}`}>
+                <h2>You have completed your training for today</h2>
+                <h2 className={`flex-row-center ${styles.rowGapModalWrapper}`}>
+                  You've earned <p className="highlighted"> {`${userScore}`} points</p>
+                </h2>
+              </div>
+              <img
+                className={styles.gondolierFromTheLeft}
+                src={italianMan}
+                height="290px"
+                width="290px"
+              />
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                navigate('/learn')
+                handleClose()
+              }}
+            >
+              Go to learning
+            </Button>
+            {/* <Button
+              variant="primary"
+              onClick={() => {
+                handleClose()
+              }}
+            >
+              Continue training
+            </Button> */}
+          </Modal.Footer>
+        </Modal>
+      )}
 
       <Score score={userScore} numberOfCards={cards.length} />
 
-      {Boolean(sliced.length) && (
+      {Boolean(myNewDataFiltered.length) && (
         <Swiper
           slidesPerView={1}
           centeredSlides={true}
@@ -125,7 +171,7 @@ const TrainCards: FC = () => {
           modules={[Navigation, Pagination]}
           className={styles.mySwiper}
         >
-          {sliced.map((word: Word) => {
+          {myNewDataFiltered.map((word: Word) => {
             return (
               <SwiperSlide className={styles.mySwiperSlide}>
                 <Card italianWord={word.italianWord} imageSrc={word.imageSrc} />

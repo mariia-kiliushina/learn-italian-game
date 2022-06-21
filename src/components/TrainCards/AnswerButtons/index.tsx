@@ -33,12 +33,14 @@ const AnswerButtons: FC<Props> = ({
   let [isAnswerRight1, setIsAnswerRight1] = useState<boolean | null>(null)
   let [isAnswerRight2, setIsAnswerRight2] = useState<boolean | null>(null)
 
-  const button1ClassName = isAnswerRight1 === true ? 'rightAnswer disabled' : ''
-  const button2ClassName = isAnswerRight2 === false ? 'wrongAnswer disabled' : ''
+  const button1ClassName = isAnswerRight1 === true ? 'rightAnswer' : ''
+  const button2ClassName = isAnswerRight2 === false ? 'wrongAnswer' : ''
+  const disabled = isAnswerRight1 !== null || isAnswerRight2 !== null ? true : false
 
   return (
     <div className={`flex-${flexDirection}-center  ${styles.buttonsWrapper}`}>
       <ButtonPrimary
+        disabled={disabled}
         className={button1ClassName}
         onClick={() => {
           setIsAnswerRight1(true)
@@ -51,6 +53,7 @@ const AnswerButtons: FC<Props> = ({
         {englishWord}
       </ButtonPrimary>
       <ButtonPrimary
+        disabled={disabled}
         className={button2ClassName}
         onClick={() => {
           setIsAnswerRight2(false)
