@@ -3,7 +3,13 @@ import randomWords from 'random-words'
 
 export const fetchCards = createAsyncThunk('fetchCards', async (thunkAPI) => {
   const response = await fetch(
-    'https://raw.githubusercontent.com/mariia-kiliushina/learn-italian-data/master/data.json',
+    '/api/italianWords',
+    {
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      method: 'GET',
+    },
+    // 'https://raw.githubusercontent.com/mariia-kiliushina/learn-italian-data/master/data.json',
   ).then((response) => response.json())
 
   return response.map((word) => ({
@@ -48,7 +54,7 @@ const slicerReducer = createSlice({
         state.loading = false
       })
       .addCase(fetchCards.rejected, (state) => {
-        state.error = error.message
+        state.error = 'error'
         state.loading = false
       })
   },

@@ -10,7 +10,11 @@ let config = {
     filename: 'index_bundle.js',
   },
   devServer: {
-    port: 8001,
+    historyApiFallback: true,
+    port: 8080,
+    proxy: {
+      '/api': 'http://localhost:8081',
+    },
   },
   mode: 'development',
   module: {
@@ -83,9 +87,6 @@ let config = {
       filename: './bundle.css',
     }),
   ],
-  devServer: {
-    historyApiFallback: true,
-  },
   performance: {
     hints: false,
     maxEntrypointSize: 512000,

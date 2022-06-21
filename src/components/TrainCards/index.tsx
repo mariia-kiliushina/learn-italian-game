@@ -50,6 +50,11 @@ const TrainCards: FC = () => {
   }
 
   useEffect(() => {
+    // @ts-ignore
+    dispatch(fetchCards())
+  }, [])
+
+  useEffect(() => {
     if (cards.length === 0) {
       // @ts-ignore
       dispatch(fetchCards())
@@ -58,7 +63,7 @@ const TrainCards: FC = () => {
 
   const cardsShownPerSession = 5
 
-  const shuffle = (a: any) => {
+  const shuffle = (a: {}[]) => {
     const aCopy = [...a]
     for (let i = aCopy.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1))
@@ -70,6 +75,7 @@ const TrainCards: FC = () => {
   const myNewDataFiltered = cards.filter((word: Word) => shownCardsIds.includes(word.id) === false)
 
   let shuffledCards = shuffle(myNewDataFiltered)
+  console.log(shuffledCards)
 
   if (loading) return <Loader />
   return (
@@ -160,14 +166,6 @@ const TrainCards: FC = () => {
             >
               Go to learning
             </Button>
-            {/* <Button
-              variant="primary"
-              onClick={() => {
-                handleClose()
-              }}
-            >
-              Continue training
-            </Button> */}
           </Modal.Footer>
         </Modal>
       )}
@@ -182,6 +180,7 @@ const TrainCards: FC = () => {
           modules={[Navigation, Pagination]}
           className={styles.mySwiper}
         >
+          {/* @ts-ignore */}
           {shuffledCards.map((word: Word) => {
             return (
               <SwiperSlide className={styles.mySwiperSlide}>
