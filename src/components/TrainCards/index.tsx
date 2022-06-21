@@ -13,7 +13,7 @@ import 'swiper/scss/pagination'
 import 'swiper/scss/zoom'
 
 import italianMan from '../../../public/images/italian-man.png'
-import { fetchCards, setScore, setShownCardsIds } from '../../redux/sliceReducer'
+import { fetchCards, postScoreToServer, setShownCardsIds } from '../../redux/sliceReducer'
 import Card from '../Card'
 import Loader from '../Loader'
 import AnswerButtons from './AnswerButtons'
@@ -47,6 +47,8 @@ const TrainCards: FC = () => {
     setShownCardsState([])
     // @ts-ignore
     dispatch(fetchCards())
+    // @ts-ignore
+    dispatch(postScoreToServer(userScore))
   }
 
   useEffect(() => {
@@ -75,7 +77,6 @@ const TrainCards: FC = () => {
   const myNewDataFiltered = cards.filter((word: Word) => shownCardsIds.includes(word.id) === false)
 
   let shuffledCards = shuffle(myNewDataFiltered)
-  console.log(shuffledCards)
 
   if (loading) return <Loader />
   return (
@@ -190,7 +191,7 @@ const TrainCards: FC = () => {
                   id={word.id}
                   englishWord={word.englishWord}
                   wrongAnswer={word.wrongAnswer}
-                  setUserScore={setScore}
+                  postScoreToServer={postScoreToServer}
                   addSlidesToHistory={addSlidesToHistory}
                   randomNum={Math.random()}
                 />

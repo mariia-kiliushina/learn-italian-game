@@ -1,22 +1,36 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import randomWords from 'random-words'
+import { responsivePropType } from 'react-bootstrap/esm/createUtilityClasses'
 
 export const fetchCards = createAsyncThunk('fetchCards', async (thunkAPI) => {
-  const response = await fetch(
-    '/api/italianWords',
-    {
-      credentials: 'same-origin',
-      headers: { 'Content-Type': 'application/json' },
-      method: 'GET',
-    },
-    // 'https://raw.githubusercontent.com/mariia-kiliushina/learn-italian-data/master/data.json',
-  ).then((response) => response.json())
+  const response = await fetch('/api/italianWords', {
+    credentials: 'same-origin',
+    headers: { 'Content-Type': 'application/json' },
+    method: 'GET',
+  })
+    .then((response) => response.json())
+    .catch((error) => error.message)
 
   return response.map((word) => ({
     ...word,
     wrongAnswer: randomWords(1),
   }))
 })
+export const postScoreToServer = createAsyncThunk(
+  'postScoreToServer',
+  async (userScore, thunkAPI) => {
+    debugger
+    const response = await fetch('/api/userScore', {
+      body: JSON.stringify([userScore]),
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
+    })
+      .then((response) => response.json())
+      .then(console.log)
+    return response
+  },
+)
 
 const initialState = {
   userName: '',
@@ -53,9 +67,12 @@ const slicerReducer = createSlice({
         state.cards = action.payload
         state.loading = false
       })
-      .addCase(fetchCards.rejected, (state) => {
-        state.error = 'error'
+      .addCase(fetchCards.rejected, (state, action) => {
+        state.error = action.error.message
         state.loading = false
+      })
+      .addCase(postScoreToServer.fulfilled, (state, action) => {
+        state.userScore = action.payload
       })
   },
 })

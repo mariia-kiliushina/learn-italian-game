@@ -1,4 +1,4 @@
-import { AnyAction } from '@reduxjs/toolkit'
+import { AsyncThunk } from '@reduxjs/toolkit'
 import { FC, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import 'swiper/scss'
@@ -13,7 +13,7 @@ type Props = {
   id: number
   englishWord: string
   wrongAnswer: string[] | undefined
-  setUserScore: () => AnyAction
+  postScoreToServer: AsyncThunk<void, void, {}>
   addSlidesToHistory: (id: number) => void
   randomNum: number
 }
@@ -22,7 +22,7 @@ const AnswerButtons: FC<Props> = ({
   id,
   englishWord,
   wrongAnswer,
-  setUserScore,
+  postScoreToServer,
   addSlidesToHistory,
   randomNum,
 }) => {
@@ -37,6 +37,8 @@ const AnswerButtons: FC<Props> = ({
   const button2ClassName = isAnswerRight2 === false ? 'wrongAnswer' : ''
   const disabled = isAnswerRight1 !== null || isAnswerRight2 !== null ? true : false
 
+  let [score, setScore] = useState(0)
+
   return (
     <div className={`flex-${flexDirection}-center  ${styles.buttonsWrapper}`}>
       <ButtonPrimary
@@ -45,8 +47,10 @@ const AnswerButtons: FC<Props> = ({
         onClick={() => {
           setIsAnswerRight1(true)
           setTimeout(() => {
+            setScore((score) => score++)
             addSlidesToHistory(id)
-            dispatch(setUserScore())
+            // @ts-ignore
+            dispatch(postScoreToServer(score))
           }, 1000)
         }}
       >
