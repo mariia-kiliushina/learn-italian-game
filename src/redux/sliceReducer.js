@@ -21,7 +21,8 @@ export const postScoreToServer = createAsyncThunk(
   'postScoreToServer',
   async (userScore, thunkAPI) => {
     const response = await fetch('/api/userScore', {
-      body: JSON.stringify(userScore),
+      //[] needed to be able to POST value (body should be either {} or [])
+      body: JSON.stringify([userScore]),
       credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',

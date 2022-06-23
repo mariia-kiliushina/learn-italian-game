@@ -60,7 +60,7 @@ const AnswerButtons: FC<Props> = ({
             // @ts-ignore
             dispatch(postScoreToServer(newScore))
             //@ts-ignore
-            setLocalStorageItem('userScore', newScore.toString(), 20)
+            setLocalStorageItem('userScore', newScore.toString(), 60)
           }, 1000)
         }}
       >
