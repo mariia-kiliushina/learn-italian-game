@@ -13,7 +13,7 @@ import 'swiper/scss/pagination'
 import 'swiper/scss/zoom'
 
 import italianMan from '../../../public/images/italian-man.png'
-import { fetchCards, postScoreToServer, setShownCardsIds } from '../../redux/sliceReducer'
+import { fetchCards, setShownCardsIds } from '../../redux/sliceReducer'
 import { getLocalStorageItem } from '../../utils/localStorage'
 import Card from '../Card'
 import Loader from '../Loader'
@@ -48,14 +48,10 @@ const TrainCards: FC = () => {
     setShownCardsState([])
     // @ts-ignore
     dispatch(fetchCards())
-    // @ts-ignore
-    dispatch(postScoreToServer(userScoreFromStorage))
   }
   const handleCloseFinished = () => {
     navigate('/learn')
     setShownCardsState([])
-    // @ts-ignore
-    dispatch(postScoreToServer(userScoreFromStorage))
   }
 
   useEffect(() => {
@@ -88,11 +84,6 @@ const TrainCards: FC = () => {
   // localStorage.clear()
 
   let userScoreFromStorage = getLocalStorageItem('userScore')
-
-  console.log('shownCardsState')
-  console.log(shownCardsState)
-  console.log('shownCardsIds')
-  console.log(shownCardsIds)
 
   if (loading) return <Loader />
   return (
@@ -206,7 +197,6 @@ const TrainCards: FC = () => {
                   id={word.id}
                   englishWord={word.englishWord}
                   wrongAnswer={word.wrongAnswer}
-                  postScoreToServer={postScoreToServer}
                   addSlidesToHistory={addSlidesToHistory}
                   randomNum={Math.random()}
                 />
