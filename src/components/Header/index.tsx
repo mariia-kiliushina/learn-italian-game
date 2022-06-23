@@ -28,6 +28,7 @@ const Header: FC = () => {
             <Link to="/profile">Profile</Link>
           </li>
           <Avatar />
+          <button onClick={() => localStorage.clear()}>Clear local storage</button>
         </ul>
       </nav>
     </header>

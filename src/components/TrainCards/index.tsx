@@ -48,7 +48,7 @@ const TrainCards: FC = () => {
     // @ts-ignore
     dispatch(fetchCards())
     // @ts-ignore
-    dispatch(postScoreToServer(userScore))
+    dispatch(postScoreToServer(userScoreFromStorage))
   }
 
   useEffect(() => {
@@ -78,6 +78,8 @@ const TrainCards: FC = () => {
 
   let shuffledCards = shuffle(myNewDataFiltered)
 
+  let userScoreFromStorage = localStorage.getItem('userScore')
+
   if (loading) return <Loader />
   return (
     <>
@@ -97,7 +99,7 @@ const TrainCards: FC = () => {
               <div className={`flex-column-center ${styles.textModalWrapper}`}>
                 <h2>You have succesfully finished this lesson</h2>
                 <h2 className={`flex-row-center ${styles.rowGapModalWrapper}`}>
-                  You've earned <p className="highlighted"> {`${userScore}`} points</p>
+                  You've earned <p className="highlighted"> {`${userScoreFromStorage}`} points</p>
                 </h2>
               </div>
               <img
@@ -146,7 +148,7 @@ const TrainCards: FC = () => {
               <div className={`flex-column-center ${styles.textModalWrapper}`}>
                 <h2>You have completed your training for today</h2>
                 <h2 className={`flex-row-center ${styles.rowGapModalWrapper}`}>
-                  You've earned <p className="highlighted"> {`${userScore}`} points</p>
+                  You've earned <p className="highlighted"> {`${userScoreFromStorage}`} points</p>
                 </h2>
               </div>
               <img
@@ -171,7 +173,7 @@ const TrainCards: FC = () => {
         </Modal>
       )}
 
-      <Score score={userScore} numberOfCards={cards.length} />
+      <Score score={userScoreFromStorage} numberOfCards={cards.length} />
 
       {Boolean(shuffledCards.length) && (
         <Swiper

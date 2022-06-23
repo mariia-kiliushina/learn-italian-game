@@ -16,19 +16,18 @@ export const fetchCards = createAsyncThunk('fetchCards', async (thunkAPI) => {
     wrongAnswer: randomWords(1),
   }))
 })
+
 export const postScoreToServer = createAsyncThunk(
   'postScoreToServer',
   async (userScore, thunkAPI) => {
-    debugger
     const response = await fetch('/api/userScore', {
-      body: JSON.stringify([userScore]),
+      body: JSON.stringify(userScore),
       credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
     })
-      .then((response) => response.json())
-      .then(console.log)
-    return response
+    const responseJSON = await response.json()
+    return responseJSON.score[0]
   },
 )
 

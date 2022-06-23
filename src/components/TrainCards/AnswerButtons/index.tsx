@@ -1,6 +1,6 @@
 import { AsyncThunk } from '@reduxjs/toolkit'
 import { FC, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import 'swiper/scss'
 import 'swiper/scss/pagination'
 import 'swiper/scss/zoom'
@@ -27,6 +27,13 @@ const AnswerButtons: FC<Props> = ({
   randomNum,
 }) => {
   const dispatch = useDispatch()
+  //@ts-ignore
+  const { userScore } = useSelector((state) => state.reducer)
+  let score = Number(localStorage.getItem('userScore'))
+  console.log('SCORE')
+  console.log(score)
+
+  // localStorage.removeItem('userScore')
 
   const flexDirection = randomNum > 0.5 ? 'row' : 'row-reverse'
 
@@ -37,8 +44,6 @@ const AnswerButtons: FC<Props> = ({
   const button2ClassName = isAnswerRight2 === false ? 'wrongAnswer' : ''
   const disabled = isAnswerRight1 !== null || isAnswerRight2 !== null ? true : false
 
-  let [score, setScore] = useState(0)
-
   return (
     <div className={`flex-${flexDirection}-center  ${styles.buttonsWrapper}`}>
       <ButtonPrimary
@@ -47,10 +52,14 @@ const AnswerButtons: FC<Props> = ({
         onClick={() => {
           setIsAnswerRight1(true)
           setTimeout(() => {
-            setScore((score) => score++)
             addSlidesToHistory(id)
+            let newScore = 0
+            if (score !== null) {
+              newScore = score + 1
+            }
             // @ts-ignore
-            dispatch(postScoreToServer(score))
+            dispatch(postScoreToServer(newScore))
+            localStorage.setItem('userScore', newScore.toString())
           }, 1000)
         }}
       >
