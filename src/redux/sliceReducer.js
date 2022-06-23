@@ -3,11 +3,9 @@ import randomWords from 'random-words'
 import { responsivePropType } from 'react-bootstrap/esm/createUtilityClasses'
 
 export const fetchCards = createAsyncThunk('fetchCards', async (thunkAPI) => {
-  const response = await fetch('/api/italianWords', {
-    credentials: 'same-origin',
-    headers: { 'Content-Type': 'application/json' },
-    method: 'GET',
-  })
+  const response = await fetch(
+    'https://raw.githubusercontent.com/mariia-kiliushina/learn-italian-data/master/data.json',
+  )
     .then((response) => response.json())
     .catch((error) => error.message)
 
@@ -16,21 +14,6 @@ export const fetchCards = createAsyncThunk('fetchCards', async (thunkAPI) => {
     wrongAnswer: randomWords(1),
   }))
 })
-
-export const postScoreToServer = createAsyncThunk(
-  'postScoreToServer',
-  async (userScore, thunkAPI) => {
-    const response = await fetch('/api/userScore', {
-      //[] needed to be able to POST value (body should be either {} or [])
-      body: JSON.stringify([userScore]),
-      credentials: 'same-origin',
-      headers: { 'Content-Type': 'application/json' },
-      method: 'POST',
-    })
-    const responseJSON = await response.json()
-    return responseJSON.score[0]
-  },
-)
 
 const initialState = {
   userName: '',
@@ -71,11 +54,8 @@ const slicerReducer = createSlice({
         state.error = action.error.message
         state.loading = false
       })
-      .addCase(postScoreToServer.fulfilled, (state, action) => {
-        state.userScore = action.payload
-      })
   },
 })
 
-export const { setName, setScore, setShownCardsIds, nullify } = slicerReducer.actions
+export const { setName, setScore, setShownCardsIds } = slicerReducer.actions
 export default slicerReducer.reducer

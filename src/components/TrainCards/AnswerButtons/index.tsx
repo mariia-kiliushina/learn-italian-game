@@ -1,6 +1,5 @@
-import { AsyncThunk } from '@reduxjs/toolkit'
 import { FC, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import 'swiper/scss'
 import 'swiper/scss/pagination'
 import 'swiper/scss/zoom'
@@ -14,7 +13,6 @@ type Props = {
   id: number
   englishWord: string
   wrongAnswer: string[] | undefined
-  postScoreToServer: AsyncThunk<void, void, {}>
   addSlidesToHistory: (id: number) => void
   randomNum: number
 }
@@ -23,11 +21,10 @@ const AnswerButtons: FC<Props> = ({
   id,
   englishWord,
   wrongAnswer,
-  postScoreToServer,
   addSlidesToHistory,
   randomNum,
 }) => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   //@ts-ignore
   const { userScore } = useSelector((state) => state.reducer)
   let score = getLocalStorageItem('userScore')
@@ -52,13 +49,11 @@ const AnswerButtons: FC<Props> = ({
           setIsAnswerRight1(true)
           setTimeout(() => {
             addSlidesToHistory(id)
-            console.log(score)
             let newScore = score ? +score : 0
             if (newScore !== null) {
               newScore = newScore + 1
             }
-            // @ts-ignore
-            dispatch(postScoreToServer(newScore))
+
             //@ts-ignore
             setLocalStorageItem('userScore', newScore.toString(), 43200)
           }, 1000)
