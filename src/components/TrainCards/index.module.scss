@@ -1,0 +1,26 @@
+@use '../../sass/base/constants' as *;
+.mySwiper {
+  height: 620px;
+  width: 700px;
+  .mySwiperSlide {
+    align-self: flex-start;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+.buttonsWrapper {
+  column-gap: 30px;
+  padding: 20px;
+}
+
+.textModalWrapper {
+  row-gap: 15px;
+  text-align: center;
+}
+
+.rowGapModalWrapper {
+  column-gap: 20px;
+  color: $color-text-l;
+}

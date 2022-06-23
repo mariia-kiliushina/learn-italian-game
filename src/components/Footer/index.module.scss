@@ -1,0 +1,16 @@
+@use '../../sass/base/constants' as *;
+
+footer {
+  color: white;
+  background-color: $color-primary-light;
+  color: white;
+  height: 10vh;
+  min-height: 80px;
+  .footer_content {
+    column-gap: 20px;
+  }
+  a {
+    font-size: $small;
+    color: currentColor;
+  }
+}

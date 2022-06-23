@@ -1,0 +1,40 @@
+.primary-background {
+  background-color: $color-primary;
+}
+
+.swiper-slide-active .swiper-slide {
+  height: 100%;
+}
+
+.pictures {
+  .backImage1 {
+    position: absolute;
+    top: 110px;
+    left: 990px;
+  }
+  .backImage2 {
+    position: absolute;
+    top: 88px;
+    left: 880px;
+  }
+  .backImage3 {
+    position: absolute;
+    top: 180px;
+    left: 860px;
+  }
+  .backImage4 {
+    position: absolute;
+    top: 90px;
+    left: 1080px;
+  }
+  .backImage5 {
+    position: absolute;
+    top: 70px;
+    left: 730px;
+  }
+  .backImage6 {
+    position: absolute;
+    top: 60px;
+    left: 30px;
+  }
+}

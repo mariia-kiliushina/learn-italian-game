@@ -1,0 +1,49 @@
+@use '../../sass/base/constants' as *;
+// Сохранить на будущее для рандомных цветов у карточек
+// $my-colors: ($color-contrastic-1, $color-contrastic-2, $color-contrastic-3, $color-contrastic-4);
+
+// @for $colorIndex from 1 through length($my-colors) {
+//   .cardImageWrapper:nth-child(#{length($my-colors)}n + #{$colorIndex}) {
+//     background-color: nth($my-colors, $colorIndex);
+//   }
+// }
+
+.cardItemWrapper {
+  height: 500px;
+  width: 400px;
+  border: 10px solid $color-primary-light;
+  border-radius: 10px;
+  background-color: $color-primary-light;
+  .cardImageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 70%;
+    width: 100%;
+  }
+  .cardTextWrapper {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 30%;
+    width: 100%;
+    background-color: white;
+  }
+  img {
+    border-radius: 10px;
+    display: block;
+    height: 80%;
+    width: 80%;
+  }
+}
+
+.wordToTranslate {
+  font-size: 40px;
+  color: $color-text-s;
+}
+
+.translation {
+  font-size: 28px;
+  color: $color-text-s;
+}

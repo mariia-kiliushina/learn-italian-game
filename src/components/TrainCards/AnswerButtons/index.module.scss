@@ -1,0 +1,18 @@
+@use '../../../sass/base/constants' as *;
+
+$randomNum: random(1);
+
+.mySwiperSlide {
+  align-self: flex-start;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.buttonsWrapper {
+  column-gap: 30px;
+  margin: 20px;
+  button {
+    height: 70px;
+  }
+}

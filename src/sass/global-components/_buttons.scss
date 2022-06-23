@@ -1,0 +1,10 @@
+.rightAnswer {
+  background-color: $color-contrastic-1 !important;
+}
+.wrongAnswer {
+  background-color: $color-primary-light !important;
+}
+
+.disabled {
+  pointer-events: none;
+}

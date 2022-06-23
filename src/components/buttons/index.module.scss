@@ -1,0 +1,35 @@
+@use '../../sass/base/constants' as *;
+
+.buttonPrimary {
+  width: 280px;
+  height: 70px;
+  background-color: $color-secondary;
+  color: white;
+  font-size: $medium;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  &:hover {
+    background-color: $color-text-bright;
+    box-shadow: 0 0 0 0.25rem $color-secondary;
+    border: none;
+  }
+  &:focus {
+    background-color: $color-secondary;
+    box-shadow: none;
+    border: none;
+  }
+  &:active {
+    background-color: $color-secondary;
+    box-shadow: none;
+    border: none;
+  }
+  &:active:focus {
+    background-color: $color-secondary;
+    box-shadow: none;
+    border: none;
+  }
+  &:disabled {
+    pointer-events: none;
+  }
+}
