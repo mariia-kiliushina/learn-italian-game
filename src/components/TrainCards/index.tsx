@@ -88,8 +88,11 @@ const TrainCards: FC = () => {
   // localStorage.clear()
 
   let userScoreFromStorage = getLocalStorageItem('userScore')
-  console.log('userScoreFromStorage')
-  console.log(userScoreFromStorage)
+
+  console.log('shownCardsState')
+  console.log(shownCardsState)
+  console.log('shownCardsIds')
+  console.log(shownCardsIds)
 
   if (loading) return <Loader />
   return (
