@@ -7,6 +7,7 @@ import 'swiper/scss/zoom'
 
 import ButtonPrimary from '#components/buttons'
 
+import { getLocalStorageItem, setLocalStorageItem } from '../../../utils/localStorage'
 import styles from './index.module.scss'
 
 type Props = {
@@ -29,9 +30,7 @@ const AnswerButtons: FC<Props> = ({
   const dispatch = useDispatch()
   //@ts-ignore
   const { userScore } = useSelector((state) => state.reducer)
-  let score = Number(localStorage.getItem('userScore'))
-  console.log('SCORE')
-  console.log(score)
+  let score = getLocalStorageItem('userScore')
 
   // localStorage.removeItem('userScore')
 
@@ -53,13 +52,15 @@ const AnswerButtons: FC<Props> = ({
           setIsAnswerRight1(true)
           setTimeout(() => {
             addSlidesToHistory(id)
-            let newScore = 0
-            if (score !== null) {
-              newScore = score + 1
+            console.log(score)
+            let newScore = score ? +score : 0
+            if (newScore !== null) {
+              newScore = newScore + 1
             }
             // @ts-ignore
             dispatch(postScoreToServer(newScore))
-            localStorage.setItem('userScore', newScore.toString())
+            //@ts-ignore
+            setLocalStorageItem('userScore', newScore.toString(), 20)
           }, 1000)
         }}
       >

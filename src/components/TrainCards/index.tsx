@@ -14,6 +14,7 @@ import 'swiper/scss/zoom'
 
 import italianMan from '../../../public/images/italian-man.png'
 import { fetchCards, postScoreToServer, setShownCardsIds } from '../../redux/sliceReducer'
+import { getLocalStorageItem } from '../../utils/localStorage'
 import Card from '../Card'
 import Loader from '../Loader'
 import AnswerButtons from './AnswerButtons'
@@ -50,6 +51,12 @@ const TrainCards: FC = () => {
     // @ts-ignore
     dispatch(postScoreToServer(userScoreFromStorage))
   }
+  const handleCloseFinished = () => {
+    navigate('/learn')
+    setShownCardsState([])
+    // @ts-ignore
+    dispatch(postScoreToServer(userScoreFromStorage))
+  }
 
   useEffect(() => {
     // @ts-ignore
@@ -78,7 +85,11 @@ const TrainCards: FC = () => {
 
   let shuffledCards = shuffle(myNewDataFiltered)
 
-  let userScoreFromStorage = localStorage.getItem('userScore')
+  // localStorage.clear()
+
+  let userScoreFromStorage = getLocalStorageItem('userScore')
+  console.log('userScoreFromStorage')
+  console.log(userScoreFromStorage)
 
   if (loading) return <Loader />
   return (
@@ -135,12 +146,12 @@ const TrainCards: FC = () => {
       {shownCardsIds.length === cards.length && (
         <Modal
           show={isModalShown}
-          onHide={handleClose}
+          onHide={handleCloseFinished}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
         >
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title>Congratulazioni!</Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -163,8 +174,7 @@ const TrainCards: FC = () => {
             <Button
               variant="secondary"
               onClick={() => {
-                navigate('/learn')
-                handleClose()
+                handleCloseFinished()
               }}
             >
               Go to learning
