@@ -5,3 +5,5 @@ Pet-project with use of:
 --Sass
 
 To be able to see use the app please make sure you run the server (node ./src/server/index.js)
+
+Link to deployed app: https://learn-italian-game.netlify.app/
