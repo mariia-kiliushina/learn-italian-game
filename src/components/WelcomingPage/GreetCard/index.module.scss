@@ -12,11 +12,12 @@
   padding: 20px;
   img {
     position: fixed;
-    top: 100px;
-    left: -60px;
     border-radius: 10px;
     display: block;
     height: 260px;
+    top: 100px;
+    transform: rotate(36deg);
+    left: -60px;
     width: 260px;
   }
 }

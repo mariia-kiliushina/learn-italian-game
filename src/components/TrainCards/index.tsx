@@ -81,13 +81,14 @@ const TrainCards: FC = () => {
 
   let shuffledCards = shuffle(myNewDataFiltered)
 
-  // localStorage.clear()
-
   let userScoreFromStorage = getLocalStorageItem('userScore')
 
   if (loading) return <Loader />
   return (
     <>
+      <Button className={styles.clearStorageButton} onClick={() => localStorage.clear()}>
+        Clear
+      </Button>
       {shownCardsState.length === cardsShownPerSession && shownCardsIds.length !== cards.length && (
         <Modal
           show={isModalShown}

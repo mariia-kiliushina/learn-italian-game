@@ -1,16 +1,16 @@
 @use '../../sass/base/constants' as *;
 
 header {
-  padding: 50px;
   color: white;
-  height: 150px;
+  height: 100%;
 }
 
 .navigation_bar {
   display: flex;
   flex-direction: row;
   align-items: center;
-  column-gap: 55px;
+  justify-content: space-around;
+  height: 100%;
   .navigation_item {
     display: inline-block;
     font-size: 26px;

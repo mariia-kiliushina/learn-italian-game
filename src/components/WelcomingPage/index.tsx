@@ -56,7 +56,6 @@ const WelcomingPage: FC = () => {
         </div>
       </div>
       <div className={styles.noop}></div>
-      <div className={styles.noop}></div>
     </>
   )
 }
